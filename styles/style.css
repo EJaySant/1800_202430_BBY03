@@ -1,1 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
+html, body {
+    font-family: "Raleway", Arial, sans-serif;
+}
+
+.small-icon {
+    width: 2em;
+    filter: opacity(0.8) drop-shadow(1px 1px 2px rgb(179, 179, 179));
+}
