@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>FNK</title>
   <meta name="comp1800 project" content="BBY03 Project">
@@ -15,10 +16,6 @@
     crossorigin="anonymous"></script>
 
   <!-- Other libraries go here -->
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/jumbotron/">
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/footers/">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-
   <!-- Firebase -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -27,38 +24,59 @@
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> 
-  
-  <!-- Favicons -->
-  <meta name="theme-color" content="#712cf9">
+
   <!-- Link to styles of your own -->
   <link rel="stylesheet" href="./styles/style.css">
-  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+
 </head>
+
 <body>
   <nav id="navbarPlaceholder"></nav>
-  <main>
-    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Finder Not Keepers</h1>
-        <p class="col-md-8 fs-4">Our application serves to help the community find their lost item. It is a
-          community-run application, which means that when the community will find the lost item, they will post it on
-          the application for the owner. Once the owner wants to find their lost item, they can browse or search for
-          their lost item on the application
-        </p>
-        <a href="login.html" class="btn btn-primary" role="button">Log in</a>
-      </div>
-    </div>
-    <div id="footerPlaceholder"></div>
-  </main>
+  <!-- Stuff for body goes here -->
+  <div class="settings-container">
+    <h1>Settings</h1>
 
+    <form class="settings-form">
+        <h2>Profile Settings</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <h2>Privacy Settings</h2>
+        <label for="profileVisibility">Profile Visibility:</label>
+        <select id="profileVisibility" name="profileVisibility">
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+        </select>
+
+        <label for="locationVisibility">Location Visibility:</label>
+        <select id="locationVisibility" name="locationVisibility">
+            <option value="visible">Visible to everyone</option>
+            <option value="hidden">Hidden</option>
+        </select>
+
+        <h2>Notification Preferences</h2>
+        <label for="emailNotifications">Email Notifications:</label>
+        <select id="emailNotifications" name="emailNotifications">
+            <option value="enabled">Enabled</option>
+            <option value="disabled">Disabled</option>
+        </select>
+
+        <label for="smsNotifications">SMS Notifications:</label>
+        <select id="smsNotifications" name="smsNotifications">
+            <option value="enabled">Enabled</option>
+            <option value="disabled">Disabled</option>
+        </select>
+
+        <button type="submit">Save Changes</button>
+    </form>
+  </div>
 
   <script src="./scripts/firebaseAPI_BBY03.js"></script>
   <script src="./scripts/authentication.js"></script>
   <script src="./scripts/skeleton.js"></script>
-  <script src="./scripts/script.js"></script>
-  <script>
-    logout();
-  </script>
 </body>
 
 </html>
