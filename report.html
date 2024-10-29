@@ -49,24 +49,52 @@
 
     <main>
         <div class="container">
-            <h1>Submit a Lost Item</h1>
-            <form>
-                <fieldset>
-                    <legend>Photos</legend>
-                    <input type="file">
+            <h1 class="my-5">Submit a Lost Item</h1>
+            <form action="./form.txt">
+                <fieldset class="m-3">
+                    <label for="photos" class="form-label">Photos:</label>
+                    <input type="file" id="photos" class="form-control" accept=".png,.jpeg,.gif" multiple>
+                    <p class="form-text">Must be a png, jpeg or gif file format.</p>
                 </fieldset>
-                <fieldset>
-                    <legend>Item Description</legend>
-                    <textarea></textarea>
+                <fieldset class="m-3">
+                    <h4>Item Description</h4>
+                    <textarea class="form-control" rows="5" placeholder="Add description"></textarea>
+                    <p class="form-text">Describe the name or colour, shape, weight, and size of the object.</p>
                 </fieldset>
-                <fieldset>
-                    <legend>Location</legend>
-                    <select>
-                        <option>Potato</option>
-                        <option>Orange</option>
+                <fieldset class="m-3">
+                    <h4>Location</h4>
+                    <select class="form-select" required>
+                        <option selected class="bg bg-secondary text-light">Select a location</option>
+                        <option value="van">Vancouver</option>
+                        <option value="burn">Burnaby</option>
+                        <option value="newWest">New Westminster</option>
+                        <option value="maple">Maple Ridge</option>
+                        <option value="surrey">Surrey</option>
+                        <option value="uel">UEL</option>
+                        <option value="rich">Richmond</option>
+                        <option value="coquit">Coquitlam</option>
+                        <option value="portCoquit">Port Coquitlam</option>
+                        <option value="northVan">North Vancouver</option>
+                        <option value="northVanCity">North Vancouver City</option>
+                        <option value="westVan">West Vancouver</option>
+                        <option value="portMood">Port Moody</option>
+                        <option value="pittMead">Pitt Meadows</option>
+                        <option value="langley">Langley</option>
+                        <option value="langleyTown">Langley Township</option>
+                        <option value="delta">Delta</option>
+                        <option value="whiteRock">White Rock</option>
+                        <option value="anmore">Anmore</option>
+                        <option value="bowenIsl">Bowen Island</option>
+                        <option value="lionsBay">Lions Bay</option>
+                        <option value="belcarra">Belcarra</option>
+                    </select>
                 </fieldset>
-                <fieldset>
-                    <input type="submit" class="btn btn-primary">
+                <fieldset class="m-3">
+                    <h4>Date</h4>
+                    <input type="datetime-local" class="form-control">
+                </fieldset>
+                <fieldset class="m-1">
+                    <input type="submit" class="btn btn-primary form-control-sm">
                 </fieldset>
             </form>
         </div>
