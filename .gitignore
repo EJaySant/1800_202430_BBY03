@@ -2,3 +2,41 @@
 *.logs
 node_modules/
 .vscode/
+# macOS system files
+.DS_Store
+
+# Log files
+*.log
+*.logs
+
+# Node.js modules
+node_modules/
+
+# IDE and editor settings
+.vscode/
+.cache/
+.eclipse/
+.idea/
+
+# Windows system files and user directories
+Application Data/
+Cookies/
+Documents/
+Local Settings/
+Music/
+Pictures/
+Videos/
+OneDrive/
+Desktop.ini
+NTUSER.DAT
+ntuser.dat.LOG1
+ntuser.dat.LOG2
+ntuser.ini
+
+# Other unnecessary directories or files
+Downloads/
+Favorites/
+Links/
+Saved Games/
+Searches/
+*.lnk
