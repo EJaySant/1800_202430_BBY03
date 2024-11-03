@@ -1,8 +1,5 @@
 function logout() {
-    firebase.auth().signOut().then(() => {
-        // Sign-out successful.
-        console.log("logging out user");
-      }).catch((error) => {
-        // An error happened.
-      });
+    firebase.auth().signOut().catch((error) => {
+        console.log("An error has occured: " + error);
+    });
 }

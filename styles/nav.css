@@ -1,0 +1,90 @@
+.small-icon {
+    width: 2em;
+    height: auto;
+    filter: opacity(0.8) drop-shadow(1px 1px 2px rgb(179, 179, 179));
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:active {
+    filter: opacity(0.7);   
+}
+
+nav {
+    background-color: rgb(255, 248, 220);
+    filter: drop-shadow(1px 1px 5px black);
+    font-size: 16pt;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    display: grid;
+}
+
+nav a {
+    padding: 3%;
+    display: grid;
+    grid-template-columns: 10% 85%;
+    justify-items: start;
+    align-items: center;
+}
+
+nav > a {
+    display: block;
+    text-align: center;
+    padding: 5%;
+    font-weight: 900;
+}
+
+nav a:hover {
+    background-color: rgb(252, 226, 131);
+}
+
+nav input {
+    display: none;
+}
+
+nav label {
+    justify-self: end;
+    padding: 1%;
+    transition: transform 0.3s ease-in-out;
+}
+
+nav input:checked ~ label {
+    transform: rotate(90deg) scale(65%);
+}
+
+#menuContent {
+    max-height: 0;
+    background-color: rgb(248, 246, 239);
+    overflow: hidden;
+    grid-column: 1 / span 2;
+}
+
+input:checked ~ #menuContent {
+    max-height: 100%;
+}
+
+/* Footer Styling */
+footer {
+    border-top: 1px solid black;
+    margin: 3%;
+    padding: 1% 2%;
+}
+
+@media screen and (min-width: 800px) {
+    nav > a {
+        padding: 1%;
+    }
+    nav a {
+        padding: 0.5%;
+        grid-template-columns: 10% 85%;
+
+    }
+}
