@@ -1,20 +1,37 @@
 main {
-    margin: 0 4%;
+    margin: 2% 10%;
+    background-color: rgb(250, 250, 250);
+    filter: drop-shadow(1px 1px 5px black);
+    border-radius: 20px;
 }
 
-main a {
+#loginContainer {
+    margin: 2% 30%;
+}
+
+main p + a {
     box-sizing: border-box;
     color: white;
-    background-color: rgb(62, 150, 244);
+    background-color: rgb(82, 161, 246);
     display: block;
     text-align: center;
     width: 100px;
-    height: auto;
     padding: 1%;
     border-radius: 10px;
+    margin: 4% 0;
+    font-weight: 700;
+}
+
+main p + a:hover {
+    background-color: rgb(22, 129, 243);
 }
 
 main div {
     margin: 1% auto;
     padding: 3%;
+}
+
+main h1 {
+    margin: 2% 0;
+    text-align: center;
 }
