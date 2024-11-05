@@ -1,4 +1,4 @@
-#video {
+/* #video {
     width: 100%;
 }
 
@@ -39,15 +39,38 @@ button {
 button:hover {
     background-color: white;
     color: black;
-}
+} */
 
-main {
+form {
+    margin: 5%;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 }
 
-#confirmContainer {
-    margin: 1% 0;
-    flex-direction: column;
+select, textarea, input {
+    margin: 0.3% 0;
+    font-family: 'Raleway', Arial, sans-serif;
 }
+
+select {
+    width: 100px;
+}
+
+#submit {
+    padding: 10px;
+    font-family: 'Raleway', Arial, sans-serif;
+    background-color: rgb(0,0,0);
+    font-weight: 700;
+    text-align: center;
+    color: white;
+    border-radius: 25px;
+    width: 100px;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background-color: white;
+    color: black;    
+}
+
