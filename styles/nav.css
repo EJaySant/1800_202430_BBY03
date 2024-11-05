@@ -34,6 +34,10 @@ footer {
     align-items: center;
 }
 
+main {
+    margin-bottom: 130px;
+}
+
 .select-icon:hover {
     background-color: rgb(253, 235, 164);
     box-shadow: 5px 5px 10px rgb(0, 0, 0);
