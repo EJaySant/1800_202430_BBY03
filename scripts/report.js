@@ -147,7 +147,12 @@ function savePost() {
     
 }
 
+function resetForm() {
+    document.getElementById("lostItemForm").reset();
+}
+
 document.getElementById("submit").addEventListener("click", () => {
     savePost();
+    resetForm();
 }); 
 

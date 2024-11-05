@@ -34,7 +34,7 @@
             <img id="photo" alt="The screen capture will appear in this box.">
             <button id="confirmPhoto">Confirm Taken Photo</button>
         </div> -->
-        <div>
+        <form id="lostItemForm">
             <select id="selection" required>
                 <option></option>
                 <option value="umbrella">Umbrella</option>
@@ -42,9 +42,9 @@
                 <option value="keys">Keys</option>
                 <option value="wallet">Wallet</option>
             </select>
-            <textarea id="description"></textarea>
+            <textarea id="description" rows="6" cols="30"></textarea>
             <input type="button" id="submit" value="submit">
-        </div>
+        </form>
     </main>
     <div id="footerPlaceholder"></div>
     <script src="./scripts/firebaseAPI_BBY03.js"></script>
