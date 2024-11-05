@@ -1,3 +1,21 @@
+//----------------------------------------
+//  Your web app's Firebase configuration
+//----------------------------------------
+var firebaseConfig = {
+    apiKey: "AIzaSyBXeHIquO2saftrelRf-PfApA4satO78vo",
+    authDomain: "comp1800-202430-bby03.firebaseapp.com",
+    projectId: "comp1800-202430-bby03",
+    storageBucket: "comp1800-202430-bby03.appspot.com",
+    messagingSenderId: "1015235424214",
+    appId: "1:1015235424214:web:ab7f9bc7bf6d1b7869fe77"
+};
+
+//--------------------------------------------
+// initialize the Firebase app
+// initialize Firestore database if using it
+//--------------------------------------------
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 (() => {
     const width = 600;
     let height = 0;
@@ -99,57 +117,55 @@ function coverOff() {
 function confirmItem() {
     window.location.href="confirmReport.html";
 }
-function savePost() {
-    alert ("SAVE POST is triggered");
+// report.js
+
+// Function to save the post to Firestore
+function savePost(event) {
+    // Prevent default form submission behavior
+    event.preventDefault();
+
+    // Get user inputs
+    const title = document.getElementById("item-title").value.trim();
+    const description = document.getElementById("item-description").value.trim();
+    const tag = document.getElementById("item-category").value.trim();
+
+    // Validate inputs
+    if (title === "" || description === "" || tag === "") {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    // Log inputs for debugging
+    console.log("Inputs collected:", { title, description, tag });
+
+    // Authenticate the user
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            // User is signed in.
-            // Do something for the user here. 
-            var desc = document.getElementById("description").value;
+            // User is signed in, proceed to add the document
             db.collection("Lost_Items").add({
                 owner: user.uid,
-                description: desc,
-                last_updated: firebase.firestore.FieldValue
-                    .serverTimestamp() //current system time
-            }).then(doc => {
-                console.log("1. Post document added!");
-                console.log(doc.id);
-                uploadPic(doc.id);
+                title: title,
+                description: description,
+                tag: tag,
+                last_updated: firebase.firestore.FieldValue.serverTimestamp() // Timestamp
             })
+            .then(docRef => {
+                console.log("Document written with ID: ", docRef.id);
+                alert("Post saved successfully!");
+                // Clear form fields
+                document.getElementById("lost-found-post-form").reset();
+            })
+            .catch(error => {
+                console.error("Error adding document: ", error);
+                alert("Failed to save post. Please try again.");
+            });
         } else {
-            // No user is signed in.
-                          console.log("Error, no user signed in");
+            // No user is signed in
+            console.log("No user is signed in.");
+            alert("You must be logged in to post an item.");
         }
     });
 }
-// app.js
-document.getElementById("inputForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the form from submitting normally
 
-    // Collect user input
-    const title = document.getElementById("title").value;
-    const description = document.getElementById("description").value;
-    const tag = document.getElementById("tag").value;
-    const timestamp = new Date().toISOString(); // Get the current date and time
-
-    // Create an object to store the data
-    const inputData = {
-        title: title,
-        description: description,
-        tag: tag,
-        timestamp: timestamp
-    };
-
-    // Push the data to Firebase
-    const inputRef = database.ref('inputs'); // Reference to your Firebase database path
-    inputRef.push(inputData)
-        .then(() => {
-            console.log("Data saved successfully!");
-            // Clear the form fields
-            document.getElementById("inputForm").reset();
-        })
-        .catch((error) => {
-            console.error("Error saving data:", error);
-        });
-});
-
+// Attach the savePost function to the form submission
+document.getElementById("lost-found-post-form").addEventListener("submit", savePost);
