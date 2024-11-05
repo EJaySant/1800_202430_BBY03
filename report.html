@@ -29,12 +29,22 @@
             <video id="video">Video stream not available.</video>
             <button id="start-button" onclick="coverOn()">Take photo</button>
         </div>
-        <canvas id="canvas" style="display: none"> </canvas>
+        <canvas id="canvas" style="display: none"></canvas>
         <div  id="check" class="output" onclick="coverOff()">
             <img id="photo" alt="The screen capture will appear in this box.">
-            <button id="confirmPhoto" onclick="confirmItem()">Confirm Taken Photo</button>
+            <button id="confirmPhoto">Confirm Taken Photo</button>
         </div>
-
+        <div>
+            <select id="selection" required>
+                <option></option>
+                <option value="umbrella">Umbrella</option>
+                <option value="water">Waterbottle</option>
+                <option value="keys">Keys</option>
+                <option value="wallet">Wallet</option>
+            </select>
+            <textarea id="description"></textarea>
+            <input type="button" id="submit" value="submit">
+        </div>
     </main>
     <div id="footerPlaceholder"></div>
     <script src="./scripts/firebaseAPI_BBY03.js"></script>

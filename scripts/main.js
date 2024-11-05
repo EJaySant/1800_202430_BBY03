@@ -4,7 +4,7 @@ function displayCards (collection) {
     db.collection(collection).get()
         .then(allPosts => {
             allPosts.forEach(doc => {
-                var tags = doc.data().tags;
+                var tags = doc.data().item;
                 var description = doc.data().description;
                 var title = doc.data().title;
                 let newcard = boxTemplate.content.cloneNode(true);
@@ -18,4 +18,4 @@ function displayCards (collection) {
         })
 }
 
-displayCards("...");
+displayCards("posts");
