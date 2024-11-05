@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>FNK</title>
     <meta name="comp1800 project" content="BBY03 Project">
@@ -17,8 +18,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> 
-        
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
     <!-- Favicons -->
 
 
@@ -28,6 +29,7 @@
     <link rel="stylesheet" href="./styles/main.css">
 
 </head>
+
 <body>
     <nav>
         <a href="">Findr</a>
@@ -38,14 +40,18 @@
             <input type="image" id="searchButton" src="/images/search-icon.png" alt="Submit" value="submit">
         </div>
         <div class="containerBox">
-            <div id="postBoxTemplate">
-                <img id="lostItemContainer" src="images/3people-icon.png"  alt="..">
-                <div id="contentContainer">
-                    <span class="titlePlaceHolder"></span>
+            <div id="postsHere">
+                <div id="postBoxTemplate">
+                    <img id="lostItemContainer" src="images/3people-icon.png" alt="..">
+                    <div id="contentContainer">
+                        <span class="tagHolder"></span>
+                        <span class="titleHolder"></span>
+                        <p class="descriptionHolder"></p>
+                    </div>
                 </div>
             </div>
         </div>
-        
+
         <div id="footerPlaceholder"></div>
 
     </main>
