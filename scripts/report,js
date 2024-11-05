@@ -1,0 +1,43 @@
+// Ensure Firebase is initialized before using Firestore
+document.addEventListener("DOMContentLoaded", function () {
+    const firestore = firebase.firestore();
+    
+    // Function to save the post
+    function savePost() {
+        // Get values from the form
+        const title = document.getElementById('item-title').value;
+        const description = document.getElementById('item-description').value;
+        const tag = document.getElementById('item-category').value;
+        const user = "tushar aheer"; // Replace with dynamic user if needed
+        const dateTime = new Date().toISOString(); // Capture the current date and time
+        const location = [49.13, -122.4]; // Replace with dynamic location if needed
+
+        // Create the post object
+        const post = {
+            title: title,
+            description: description,
+            tag: tag,
+            user: user,
+            dateTime: dateTime,
+            location: location
+        };
+
+        // Save the post to Firestore
+        firestore.collection('Lost_Items').add(post)
+            .then(() => {
+                alert("Item posted successfully!");
+                // Optionally reset the form after submission
+                document.getElementById('lost-found-post-form').reset();
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+                alert("Failed to post item. Please try again.");
+            });
+    }
+
+    // Prevent default form submission and call savePost
+    document.getElementById('lost-found-post-form').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent normal form submission
+        savePost(); // Call savePost function
+    });
+});

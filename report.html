@@ -21,45 +21,48 @@
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/report.css">
-
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
+
     <nav id="navbarPlaceholder"></nav>
+
     <!-- Stuff for body goes here -->
-     
+    <div class="post-container">
+        <h2>Post Lost Item</h2>
+        <form id="lost-found-post-form">
+            <label for="item-title">Item Title:</label>
+            <input type="text" id="item-title" name="title" placeholder="e.g., Lost Wallet" required>
 
+            <label for="item-description">Description:</label>
+            <textarea id="item-description" name="description" rows="4" placeholder="Describe the item..." required></textarea>
 
+            <label for="item-category">Category:</label>
+            <select id="item-category" name="tag" required>
+                <option value="" disabled selected>Select a category</option>
+                <option value="electronics">Electronics</option>
+                <option value="clothing">Clothing</option>
+                <option value="accessories">Accessories</option>
+                <option value="jewelry">Jewelry</option>
+                <option value="other">Other</option>
+            </select>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="footerPlaceholder"></div>
+            <button type="submit">Post Item</button>
+        </form>
+    </div>
 
     <script src="./scripts/firebaseAPI_BBY03.js"></script>
     <script src="./scripts/authentication.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/report.js"></script>
+    <script>
+        // Prevent default form submission
+        document.getElementById('lost-found-post-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent normal form submission
+            savePost(); // Your function to save the post
+        });
+    </script>
 
 </body>
 
