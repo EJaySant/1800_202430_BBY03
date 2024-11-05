@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>FNK</title>
+    <title>Findr</title>
     <meta name="comp1800 project" content="BBY03 Project">
 
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,29 +13,31 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> 
 
+    <!-- Styles -->
     <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/nav.css">
+    <link rel="stylesheet" href="./styles/report.css">
+    
 </head>
 <body>
-    <nav>
-        <a href="">Findr</a>
-    </nav>
+    <nav id="navbarPlaceholder"><a href="">Findr</a></nav>
 
-    <main id="loginContainer">
-        <div>
-            <h1>Login</h2>
-            <div id="firebaseui-auth-container"></div>
-            <div id="loader">Loading...</div>
-        </div>
+    <main id="confirmContainer">
+        <div id="add-image"></div>
+        <br>
+        <select required>
+            <option value="umbrella">Umbrella</option>
+            <option value="water">Waterbottle</option>
+            <option value="keys">Keys</option>
+            <option value="wallet">Wallet</option>
+        </select>
+        <textarea></textarea>
+        <input type="button" id="submit" value="submit">
     </main>
-
+    <div id="footerPlaceholder"></div>
     <script src="./scripts/firebaseAPI_BBY03.js"></script>
-    <script src="./scripts/authentication.js"></script>
     <script src="./scripts/skeleton.js"></script>
 </body>
 
