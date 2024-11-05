@@ -42,7 +42,7 @@
 
 .postsHere {
     display: grid;
-    grid-template-rows: 33% 33% 33%;
+    grid-template-rows: auto;
 }
 
 .card {
@@ -54,7 +54,7 @@
 
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 80% 20%;
+    grid-template-rows: auto;
 }
 
 #titlePlaceHolder {
@@ -69,7 +69,7 @@
     grid-row: 2 / span 1;
 }
 
-#lostItemContainer {
+#lostItemContainer {    
     display:block;
     object-fit: contain;
     max-width: 100%;

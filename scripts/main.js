@@ -10,7 +10,7 @@ function displayCards(collection) {
                 var time = doc.data().time;
                 let newcard = cardTemplate.content.cloneNode(true);
 
-                newcard.querySelector('.tagHolder').innerHTML = tags;
+                newcard.querySelector('.tagHolder').innerHTML = "#" + tags;
                 newcard.querySelector('.titleHolder').innerHTML = title;
                 newcard.querySelector('.descriptionHolder').innerHTML = description;
                 newcard.querySelector('.timeHolder').innerHTML = time;
