@@ -96,12 +96,6 @@ function coverOff() {
     document.getElementById("check").style.display = "none";
 }
 
-function confirmItem() {
-    coverOff();
-    // window.location.href="confirmReport.html";
-}
-
-
 function savePostIDforUser(postDocID) {
     firebase.auth().onAuthStateChanged(user => {
         db.collection("users").doc(user.uid).update({
@@ -112,7 +106,6 @@ function savePostIDforUser(postDocID) {
     })
 }
 
-
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(savePost);
@@ -120,7 +113,6 @@ function getLocation() {
         console.log("Geolocation is not supported by this browser.");
     }
 }
-getLocation();
 
 function savePost() {
     var desc = document.getElementById("description").value;
@@ -148,6 +140,7 @@ function savePost() {
         }
     })
     resetForm();
+    coverOff();
 }
 
 function resetForm() {
