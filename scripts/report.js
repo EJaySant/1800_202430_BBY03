@@ -122,13 +122,14 @@ function getLocation() {
 }
 getLocation();
 
-function savePost() {
+function savePost(position) {
     var desc = document.getElementById("description").value;
     var tag = document.getElementById("selection").value;
-    // var lat = position.coords.latitude;
-    // var long = position.coords.longitude;
-    var canvas = document.getElementById("canvas");
-    var photoData = canvas.toDataURL();
+
+    const crd = position.coords;
+    var lat = crd.latitude;
+    var lng = crd.longitude
+
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             db.collection("posts").add({
@@ -137,9 +138,8 @@ function savePost() {
                 description: desc,
                 time: firebase.firestore.FieldValue
                 .serverTimestamp(),
-                // latitude: lat,
-                // longitude: long,
-                image: photoData
+                latitude: lat,
+                longitude: lng
             }).then(function (docRef) {
                 savePostIDforUser(docRef.id);
             })
