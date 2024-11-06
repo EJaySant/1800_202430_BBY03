@@ -81,7 +81,6 @@
         
                 const data = canvas.toDataURL("image/png");
                 photo.setAttribute("src", data);
-
             } else {
                 clearPhoto();
             }
@@ -123,11 +122,13 @@ function getLocation() {
 }
 getLocation();
 
-function savePost(position) {
+function savePost() {
     var desc = document.getElementById("description").value;
     var tag = document.getElementById("selection").value;
-    var lat = position.coords.latitude;
-    var long = position.coords.longitude;
+    // var lat = position.coords.latitude;
+    // var long = position.coords.longitude;
+    var canvas = document.getElementById("canvas");
+    var photoData = canvas.toDataURL();
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             db.collection("posts").add({
@@ -136,8 +137,9 @@ function savePost(position) {
                 description: desc,
                 time: firebase.firestore.FieldValue
                 .serverTimestamp(),
-                latitude: lat,
-                longitude: long
+                // latitude: lat,
+                // longitude: long,
+                image: photoData
             }).then(function (docRef) {
                 savePostIDforUser(docRef.id);
             })
