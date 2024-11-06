@@ -1,5 +1,5 @@
-function displayCards (collection) {
-    let cardTemplate = document.getElementById("postBoxTemplate");
+function displayCards(collection) {
+    let cardTemplate = document.getElementById("postCardTemplate"); 
     
     db.collection(collection).get()
         .then(allPosts => {
@@ -7,13 +7,15 @@ function displayCards (collection) {
                 var tags = doc.data().item;
                 var description = doc.data().description;
                 var title = doc.data().title;
-                let newcard = boxTemplate.content.cloneNode(true);
+                var time = doc.data().time;
+                let newcard = cardTemplate.content.cloneNode(true);
 
-                newcard.querySelector('.tagHolder').innerHTML = tags;
+                newcard.querySelector('.tagHolder').innerHTML = "#" + tags;
                 newcard.querySelector('.titleHolder').innerHTML = title;
                 newcard.querySelector('.descriptionHolder').innerHTML = description;
+                newcard.querySelector('.timeHolder').innerHTML = time;
                 
-                document.getElementById("postsHere").appendChild(newcard);
+                document.getElementById(collection + "Here").appendChild(newcard);
             });
         })
 }

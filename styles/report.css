@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -118,6 +119,9 @@ button[type="submit"]:hover {
     background-color: #0056b3;
 =======
 #video {
+=======
+/* #video {
+>>>>>>> 24e50591b7989ea54a18e6f33092e4a9ee88fee3
     width: 100%;
 }
 
@@ -158,16 +162,45 @@ button {
 button:hover {
     background-color: white;
     color: black;
-}
+} */
 
-main {
+form {
+    margin: 5%;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 }
 
+<<<<<<< HEAD
 #confirmContainer {
     margin: 1% 0;
     flex-direction: column;
 >>>>>>> b3f9b3bf01c70820f1e28220b0c533b828ea5c40
+=======
+select, textarea, input {
+    margin: 0.3% 0;
+    font-family: 'Raleway', Arial, sans-serif;
+>>>>>>> 24e50591b7989ea54a18e6f33092e4a9ee88fee3
 }
+
+select {
+    width: 100px;
+}
+
+#submit {
+    padding: 10px;
+    font-family: 'Raleway', Arial, sans-serif;
+    background-color: rgb(0,0,0);
+    font-weight: 700;
+    text-align: center;
+    color: white;
+    border-radius: 25px;
+    width: 100px;
+    cursor: pointer;
+}
+
+#submit:hover {
+    background-color: white;
+    color: black;    
+}
+

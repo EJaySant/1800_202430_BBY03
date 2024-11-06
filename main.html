@@ -20,9 +20,6 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
-    <!-- Favicons -->
-
-
     <!-- Styles -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/nav.css">
@@ -41,21 +38,25 @@
         </div>
         <div class="containerBox">
             <div id="postsHere">
-                <div id="postBoxTemplate">
-                    <img id="lostItemContainer" src="images/3people-icon.png" alt="..">
-                    <div id="contentContainer">
-                        <span class="tagHolder"></span>
-                        <span class="titleHolder"></span>
-                        <p class="descriptionHolder"></p>
+                <template id="postCardTemplate">
+                    <div class="card">
+                        <img id="lostItemContainer" src="/images/3people-icon.png" alt="..">
+                        <div id="contentContainer">
+                            <p class="timeHolder">test/</p>
+                            <p class="tagHolder">/test</p>
+                            <p class="titleHolder">test</p>
+                            <p class="descriptionHolder">what</p>
+                        </div>
                     </div>
-                </div>
+                </template>
             </div>
         </div>
-        
+
     </main>
     <div id="footerPlaceholder"></div>
     <script src="./scripts/firebaseAPI_BBY03.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/main.js"></script>
 </body>
 
 </html>
