@@ -1,4 +1,4 @@
-/* #video {
+#video {
     width: 100%;
 }
 
@@ -13,6 +13,7 @@
     bottom: 0;
     background-color: rgba(0,0,0,0.8);
     z-index: 2;
+    overflow-y: scroll;
 }
 
 #check * {
@@ -24,6 +25,11 @@
 
 #photo {
     border-radius: 25px;
+}
+
+#start-button {
+    display: flex;
+    justify-self: center;
 }
 
 button {
@@ -39,7 +45,7 @@ button {
 button:hover {
     background-color: white;
     color: black;
-} */
+}
 
 form {
     margin: 5%;
