@@ -25,26 +25,27 @@
     <nav id="navbarPlaceholder"><a href="">Findr</a></nav>
 
     <main>
-        <!-- <div class="camera">
+        <div class="camera">
             <video id="video">Video stream not available.</video>
             <button id="start-button" onclick="coverOn()">Take photo</button>
         </div>
         <canvas id="canvas" style="display: none"></canvas>
-        <div  id="check" class="output" onclick="coverOff()">
+        <div  id="check" class="output">
             <img id="photo" alt="The screen capture will appear in this box.">
-            <button id="confirmPhoto">Confirm Taken Photo</button>
-        </div> -->
-        <form id="lostItemForm">
-            <select id="selection" required>
-                <option></option>
-                <option value="umbrella">Umbrella</option>
-                <option value="water">Waterbottle</option>
-                <option value="keys">Keys</option>
-                <option value="wallet">Wallet</option>
-            </select>
-            <textarea id="description" rows="6" cols="30"></textarea>
-            <input type="button" id="submit" value="submit">
-        </form>
+            <button id="confirmPhoto" onclick="coverOff()">Take Another Photo</button>
+            <form id="lostItemForm">
+                <select id="selection" required>
+                    <option></option>
+                    <option value="umbrella">Umbrella</option>
+                    <option value="water">Waterbottle</option>
+                    <option value="keys">Keys</option>
+                    <option value="wallet">Wallet</option>
+                </select>
+                <textarea id="description" rows="6" cols="30" placeholder="Add an optional description of the item"></textarea>
+                <input type="button" id="submit" value="submit" onclick="savePost()">
+            </form>
+        </div>
+        
     </main>
     <div id="footerPlaceholder"></div>
     <script src="./scripts/firebaseAPI_BBY03.js"></script>
