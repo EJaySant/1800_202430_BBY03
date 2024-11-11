@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -122,6 +123,9 @@ button[type="submit"]:hover {
 =======
 /* #video {
 >>>>>>> 24e50591b7989ea54a18e6f33092e4a9ee88fee3
+=======
+#video {
+>>>>>>> 6f37e743d4d328edb0240b136e8816ab9e9a8a4e
     width: 100%;
 }
 
@@ -136,6 +140,7 @@ button[type="submit"]:hover {
     bottom: 0;
     background-color: rgba(0,0,0,0.8);
     z-index: 2;
+    overflow-y: scroll;
 }
 
 #check * {
@@ -147,6 +152,11 @@ button[type="submit"]:hover {
 
 #photo {
     border-radius: 25px;
+}
+
+#start-button {
+    display: flex;
+    justify-self: center;
 }
 
 button {
@@ -162,7 +172,7 @@ button {
 button:hover {
     background-color: white;
     color: black;
-} */
+}
 
 form {
     margin: 5%;

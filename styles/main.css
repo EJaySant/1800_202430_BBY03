@@ -49,21 +49,16 @@
     margin-bottom: 10px;
     margin-left: 1em;
     margin-right: 1em;
-    border-radius: 25px;
+    /* border-radius: 25px; */
     outline: 2px solid;
 
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: auto;
-}
-
-#titlePlaceHolder {
-    font-weight: bold;
-    font-size: large;
+    grid-template-rows: 70% 30%;
 }
 
 #contentContainer {
-    margin: 0px;
+    margin-top: 20px;
     margin-left: 20px;
     grid-column: 1 / span 1;
     grid-row: 2 / span 1;
@@ -72,9 +67,10 @@
 #lostItemContainer {    
     display:block;
     object-fit: contain;
+
     max-width: 100%;
-    max-height: 90%;
-    margin: 0;
+    max-height: 100%;
+    margin: 0px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;
