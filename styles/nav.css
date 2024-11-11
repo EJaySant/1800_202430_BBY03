@@ -12,6 +12,10 @@ nav {
     filter: drop-shadow(1px 1px 5px black);
     font-size: 24pt;
     padding: 2% 1%;
+    height: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 nav > a {
@@ -23,19 +27,18 @@ nav > a {
 /* Footer Styling */
 footer {
     position: fixed;
+    height: 6vh;
     bottom: 0;
     width: 100%;
     grid-template-columns: repeat(3, 1fr);
     background-color: rgb(255, 248, 220);
     filter: drop-shadow(1px 1px 5px black);
     padding: 1% 0;
-    display: grid;
-    justify-content: center;
+    display: flex;
+    flex-flow: nowrap row;
+    justify-content: space-around;
     align-items: center;
-}
-
-main {
-    margin-bottom: 130px;
+    transition: height 0.3s ease;
 }
 
 .select-icon:hover {
@@ -44,18 +47,18 @@ main {
 }
 
 .select-icon {
-    margin: auto;
     display: block;
-    width: 3em;
-    padding: 5%;
+    width: 40px;
+    padding: 20%;
     border-radius: 25px;
-    /* border: 5px solid black; */
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 1101px) {
     .select-icon {
         border-width: 10px;
-        max-width: 25%;
-        padding: 3%;
+    }
+
+    nav {
+        height: 0.1vh;
     }
 }

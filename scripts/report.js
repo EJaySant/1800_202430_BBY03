@@ -1,4 +1,4 @@
-(() => {
+function captureMediaStream() {
     const width = 600;
     let height = 0;
     let streaming = false;
@@ -60,9 +60,8 @@
             },
             false,
         );
-    
         clearPhoto();
-        }
+    }
         function clearPhoto() {
             const context = canvas.getContext("2d");
             context.fillStyle = "#AAA";
@@ -86,7 +85,9 @@
             }
         }
         window.addEventListener("load", startup, false);
-})();
+}
+
+captureMediaStream();
 
 function coverOn() {
     document.getElementById("check").style.display = "block";
