@@ -112,10 +112,14 @@ function savePostIDforUser(postDocID) {
 
 //Grabs the geolocation if the user enables it.
 function getLocation() {
+    // return new Promise((resolve, reject) => {
+    //     navigator.geolocation.getCurrentPosition(position => {
+    //         resolve(savePost(position.coords.latitude, position.coords.longitude));
+    //     }, reject);
+    // });
+
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-            savePost(position.coords.latitude, position.coords.longitude);
-        });
+        navigator.geolocation.getCurrentPosition(savePost);
     } else {
         console.log("Geolocation is not supported by this browser.");
     }
@@ -123,16 +127,18 @@ function getLocation() {
 
 //Creates the post of a lost item and sends it to the database.
 //Posts include the user ID, item tag, description, time, geolocation and the data URL of the picture ()
-function savePost(lat, lng) {
+function savePost(position) {
+    getLocation();
+
     var desc = document.getElementById("description").value;
     var tag = document.getElementById("selection").value;
     var photoData = document.getElementById("canvas").toDataURL();
 
-    console.log(lat, lng);
+    const crd = position.coords;
+    const lat = crd.latitude;
+    const lng = crd.longitude;
 
-    // const crd = position.coords;
-    // const lat = position.latitude;
-    // const lng = position.longitude;
+    console.log(lat, lng);
 
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -142,9 +148,9 @@ function savePost(lat, lng) {
                 description: desc,
                 image: photoData,
                 time: firebase.firestore.FieldValue
-                    .serverTimestamp()
-                // latitude: lat,
-                // longitude: lng
+                    .serverTimestamp(),
+                latitude: lat,
+                longitude: lng
             }).then(function (docRef) {
                 savePostIDforUser(docRef.id);
             })
