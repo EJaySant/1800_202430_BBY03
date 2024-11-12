@@ -130,7 +130,9 @@ function savePostIDforUser(postDocID) {
 //Grabs the geolocation if the user enables it.
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(savePost)
+        navigator.geolocation.getCurrentPosition(position => {
+            savePost(position.coords.latitude, position.coords.longitude);
+        })
     } else {
         console.log("Geolocation is not supported by this browser.");
     }
@@ -138,16 +140,12 @@ function getLocation() {
 
 //Creates the post of a lost item and sends it to the database.
 //Posts include the user ID, item tag, description, time, geolocation and the data URL of the picture ()
-function savePost(position) {
+function savePost(lat, lng) {
     getLocation();
 
     var desc = document.getElementById("description").value;
     var tag = document.getElementById("selection").value;
     var photoData = document.getElementById("canvas").toDataURL();
-
-    const crd = position.coords;
-    const lat = position.latitude;
-    const lng = position.longitude;
 
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
