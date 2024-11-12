@@ -6,7 +6,7 @@ function displayCards(collection) {
             allPosts.forEach(doc => {
                 var tags = doc.data().item;
                 var description = doc.data().description;
-                var location = {latitude:49.14228, longitude:-122.836};
+                var location = doc.data().geolocation;
                 var time = doc.data().time.toDate();  
                 var data = doc.data().image;
 
