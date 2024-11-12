@@ -2,16 +2,18 @@
     margin-bottom: 80px;
 }
 
+/* serach bar */
 #searchBarContainer {
-    
     display: flex;
     justify-content: space-between;
+    justify-self: center;
     align-items: center;
-    
     margin: 10px calc(1vh + 3vw);
-
     border-radius: 50px;
     outline: 2px solid;
+    height: 8vh;
+    width: 70%;
+
 }
 
 #searchBar {
@@ -35,38 +37,50 @@
     height: 90px;
 }
 
-.postsHere {
+/* Lost Item Posts */
+#postsHere {
     display: flex;
     justify-content: space-around;
+    flex-flow: column;
 }
 
 .card {
     margin-bottom: 10px;
     margin-left: 5%;
     margin-right: 5%;
-    /* border-radius: 25px; */
-    outline: 2px solid;
+    border-radius: 10px;
     display: flex;
     flex-flow: column wrap;
+    background-color: rgba(255, 248, 220, 0.4);
+    padding: 10px;
+    box-shadow: 1px 1px 5px black;
 }
 
-#contentContainer {
+.contentContainer {
     margin-top: 20px;
     margin-left: 20px;
-    grid-column: 1 / span 1;
-    grid-row: 2 / span 1;
 }
 
-.lostItemContainer {    
-    display:block;
+.lostItemImage {    
+    display: block;
     object-fit: contain;
+    border-radius: 25px;
 
     max-width: 100%;
     max-height: 100%;
     margin: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5px;
-    grid-column: 1 / span 1;
-    grid-row: 1 / span 1;
+}
+
+@media screen and (min-width: 800px) {
+    #postsHere {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .card {
+        width: 50%;
+    }
+
 }

@@ -12,8 +12,8 @@ function displayCards(collection) {
                 
                 let newcard = cardTemplate.content.cloneNode(true);
 
-                newcard.querySelector('.lostItemContainer').setAttribute("src", data);
-                newcard.querySelector('.lostItemContainer').setAttribute("alt", tags)
+                newcard.querySelector('.lostItemImage').setAttribute("src", data);
+                newcard.querySelector('.lostItemImage').setAttribute("alt", tags)
                 newcard.querySelector('.tagHolder').innerHTML = "#" + tags;
                 // newcard.querySelector('.titleHolder').innerHTML = title;
                 newcard.querySelector('.descriptionHolder').innerHTML = description;

@@ -40,6 +40,7 @@ button {
     text-align: center;
     color: white;
     border-radius: 25px;
+    cursor: pointer;
 }
 
 button:hover {
