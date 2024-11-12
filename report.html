@@ -24,12 +24,11 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
-<<<<<<< HEAD
 <body>
-
+    <!-- Navigation Placeholder -->
     <nav id="navbarPlaceholder"></nav>
 
-    <!-- Stuff for body goes here -->
+    <!-- Lost Item Post Form -->
     <div class="post-container">
         <h2>Post Lost Item</h2>
         <form id="lost-found-post-form">
@@ -52,15 +51,15 @@
             <button type="submit">Post Item</button>
         </form>
     </div>
-    
-=======
+
+    <!-- Camera and Image Capture Section -->
     <main>
         <div class="camera">
             <video id="video">Video stream not available.</video>
             <button id="start-button" onclick="coverOn()">Take photo</button>
         </div>
         <canvas id="canvas" style="display: none"></canvas>
-        <div  id="check" class="output">
+        <div id="check" class="output">
             <img id="photo" alt="The screen capture will appear in this box.">
             <button id="confirmPhoto" onclick="coverOff()">Take Another Photo</button>
             <form id="lostItemForm">
@@ -72,17 +71,15 @@
                     <option value="wallet">Wallet</option>
                 </select>
                 <textarea id="description" rows="6" cols="30" placeholder="Add an optional description of the item"></textarea>
-                <input type="button" id="submit" value="submit" onclick="savePost()">
+                <input type="button" id="submit" value="Submit" onclick="savePost()">
             </form>
         </div>
-        
     </main>
-<<<<<<< HEAD
-    <div id="footerPlaceholder"></div>
->>>>>>> 6f37e743d4d328edb0240b136e8816ab9e9a8a4e
-=======
+
+    <!-- Footer Placeholder -->
     <footer id="footerPlaceholder"></footer>
->>>>>>> 5669a3e17907c377028f186f96d22f6d3ce48e51
+
+    <!-- Your Custom JavaScript -->
     <script src="./scripts/firebaseAPI_BBY03.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/report.js"></script>
