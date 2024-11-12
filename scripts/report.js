@@ -107,21 +107,26 @@ function savePostIDforUser(postDocID) {
     })
 }
 
+
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(savePost);
+        navigator.geolocation.getCurrentPosition(position => {
+            savePost(position.coords.latitude, position.coords.longitude);
+        });
     } else {
         console.log("Geolocation is not supported by this browser.");
     }
 }
 
-function savePost(position) {
+function savePost(lat, lng) {
     var desc = document.getElementById("description").value;
     var tag = document.getElementById("selection").value;
 
-    const crd = position.coords;
-    var lat = crd.latitude;
-    var lng = crd.longitude
+    console.log(lat, lng);
+
+    // const crd = position.coords;
+    // const lat = position.latitude;
+    // const lng = position.longitude;
 
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
