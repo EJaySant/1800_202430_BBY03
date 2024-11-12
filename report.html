@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Findr</title>
     <meta name="comp1800 project" content="BBY03 Project">
@@ -8,29 +9,57 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Other libraries go here -->
     <!-- Firebase -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/nav.css">
+    <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/report.css">
-    
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
-<body>
-    <nav id="navbarPlaceholder"><a href="">Findr</a></nav>
 
+<body>
+    <!-- Navigation Placeholder -->
+    <nav id="navbarPlaceholder"></nav>
+
+    <!-- Lost Item Post Form -->
+    <div class="post-container">
+        <h2>Post Lost Item</h2>
+        <form id="lost-found-post-form">
+            <label for="item-title">Item Title:</label>
+            <input type="text" id="item-title" name="title" placeholder="e.g., Lost Wallet" required>
+
+            <label for="item-description">Description:</label>
+            <textarea id="item-description" name="description" rows="4" placeholder="Describe the item..." required></textarea>
+
+            <label for="item-category">Category:</label>
+            <select id="item-category" name="tag" required>
+                <option value="" disabled selected>Select a category</option>
+                <option value="electronics">Electronics</option>
+                <option value="clothing">Clothing</option>
+                <option value="accessories">Accessories</option>
+                <option value="jewelry">Jewelry</option>
+                <option value="other">Other</option>
+            </select>
+
+            <button type="submit">Post Item</button>
+        </form>
+    </div>
+
+    <!-- Camera and Image Capture Section -->
     <main>
         <div class="camera">
             <video id="video">Video stream not available.</video>
             <button id="start-button" onclick="coverOn()">Take photo</button>
         </div>
         <canvas id="canvas" style="display: none"></canvas>
-        <div  id="check" class="output">
+        <div id="check" class="output">
             <img id="photo" alt="The screen capture will appear in this box.">
             <button id="confirmPhoto" onclick="coverOff()">Take Another Photo</button>
             <form id="lostItemForm">
@@ -42,15 +71,19 @@
                     <option value="wallet">Wallet</option>
                 </select>
                 <textarea id="description" rows="6" cols="30" placeholder="Add an optional description of the item"></textarea>
-                <input type="button" id="submit" value="submit" onclick="getLocation()">
+                <input type="button" id="submit" value="Submit" onclick="savePost()">
             </form>
         </div>
-        
     </main>
+
+    <!-- Footer Placeholder -->
     <footer id="footerPlaceholder"></footer>
+
+    <!-- Your Custom JavaScript -->
     <script src="./scripts/firebaseAPI_BBY03.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/report.js"></script>
+
 </body>
 
 </html>

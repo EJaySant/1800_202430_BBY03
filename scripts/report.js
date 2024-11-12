@@ -1,4 +1,30 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+//----------------------------------------
+//  Your web app's Firebase configuration
+//----------------------------------------
+var firebaseConfig = {
+    apiKey: "AIzaSyBXeHIquO2saftrelRf-PfApA4satO78vo",
+    authDomain: "comp1800-202430-bby03.firebaseapp.com",
+    projectId: "comp1800-202430-bby03",
+    storageBucket: "comp1800-202430-bby03.appspot.com",
+    messagingSenderId: "1015235424214",
+    appId: "1:1015235424214:web:ab7f9bc7bf6d1b7869fe77"
+};
+
+//--------------------------------------------
+// initialize the Firebase app
+// initialize Firestore database if using it
+//--------------------------------------------
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+=======
+>>>>>>> 6f37e743d4d328edb0240b136e8816ab9e9a8a4e
+(() => {
+=======
 function captureMediaStream() {
+>>>>>>> 5669a3e17907c377028f186f96d22f6d3ce48e51
     const width = 600;
     let height = 0;
     let streaming = false;
@@ -6,7 +32,31 @@ function captureMediaStream() {
     let canvas = null;
     let photo = null;
     let startButton = null;
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+// (() => {
+//     const width = 600;
+//     let height = 0;
+//     let streaming = false;
+//     let video = null;
+//     let canvas = null;
+//     let photo = null;
+//     let startButton = null;
+>>>>>>> 04b9058f4c7095eb471391b305f3588445fdc050
+=======
+>>>>>>> 6f37e743d4d328edb0240b136e8816ab9e9a8a4e
+  
+    function showViewLiveResultButton() {
+        if (window.self !== window.top) {
+            return true;
+        }
+        return false;
+    }
+  
+=======
 
+>>>>>>> 82b8e8df025deae68e6e97c01c8b2aa3916ddf33
     function startup() {
         //Checks to see if the camera is at the top of the page
         if (window.self !== window.top) {
@@ -166,3 +216,10 @@ function resetForm() {
     document.getElementById("lostItemForm").reset();
 }
 
+<<<<<<< HEAD
+document.getElementById("submit").addEventListener("click", () => {
+    savePost();
+    resetForm();
+}); 
+=======
+>>>>>>> 6f37e743d4d328edb0240b136e8816ab9e9a8a4e
