@@ -8,10 +8,12 @@ function displayCards(collection) {
                 var description = doc.data().description;
                 var location = doc.data().geolocation;
                 var time = doc.data().time.toDate(time);
+                var data = doc.data().image;
+                
                 let newcard = cardTemplate.content.cloneNode(true);
 
-                console.log(time);
-
+                newcard.querySelector('.lostItemContainer').setAttribute("src", data);
+                newcard.querySelector('.lostItemContainer').setAttribute("alt", tags)
                 newcard.querySelector('.tagHolder').innerHTML = "#" + tags;
                 // newcard.querySelector('.titleHolder').innerHTML = title;
                 newcard.querySelector('.descriptionHolder').innerHTML = description;
@@ -23,3 +25,4 @@ function displayCards(collection) {
 }
 
 displayCards("posts");
+
