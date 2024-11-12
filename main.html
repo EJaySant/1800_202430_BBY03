@@ -32,11 +32,11 @@
         <a href="">Findr</a>
     </nav>
     <main id="main">
-        <div class="searchBarTemplate">
+        <div id="searchBarContainer">
             <input type="text" placeholder="Search" id="searchBar">
-            <input type="image" id="searchButton" src="/images/search-icon.png" alt="Submit" value="submit">
+            <label id="searchButton" for="searchBar"></label>
         </div>
-        <div class="containerBox">
+        <div>
             <div id="postsHere">
                 <template id="postCardTemplate">
                     <div class="card">
@@ -46,6 +46,7 @@
                             <p class="geoLocationHolder">test</p>
                             <a class="tagHolder">/test</a>
                             <p class="descriptionHolder">what</p>
+                            <p class="locationHolder"></p>
                         </div>
                     </div>
                 </template>
@@ -53,7 +54,7 @@
         </div>
 
     </main>
-    <div id="footerPlaceholder"></div>
+    <footer id="footerPlaceholder"></footer>
     <script src="./scripts/firebaseAPI_BBY03.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/main.js"></script>

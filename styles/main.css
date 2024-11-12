@@ -1,60 +1,53 @@
 #main {
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 100%;
-    grid-template-rows: 15% 85%;
+    margin-bottom: 80px;
 }
 
-.searchBarTemplate {
+#searchBarContainer {
     
-    display: grid;
-    grid-row: 1 / span 1;
-    grid-template-rows: 100%;
-    grid-template-columns: 90% 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     
-    margin-bottom: 10px;
-    margin-top: 10px;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin: 10px calc(1vh + 3vw);
 
     border-radius: 50px;
     outline: 2px solid;
 }
 
 #searchBar {
+    width: 100%;
+    height: 100%;
     border-radius: 50px;
     outline: none;
     border: none;
+    justify-self: left;
+    margin-left: 60px;
 }
 
 #searchButton {
-    float: right;
-    border-radius: 50px;
-    display:block;
-    object-fit: contain;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.containerBox {
-    grid-row: 2 / span 1;
+    background-image: url(../images/search-icon.png);
+    background-size: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-self: end;
+    margin-right: 50px;
+    width: 90px;
+    height: 90px;
 }
 
 .postsHere {
-    display: grid;
-    grid-template-rows: auto;
+    display: flex;
+    justify-content: space-around;
 }
 
 .card {
     margin-bottom: 10px;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 5%;
+    margin-right: 5%;
     /* border-radius: 25px; */
     outline: 2px solid;
-
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 70% 30%;
+    display: flex;
+    flex-flow: column wrap;
 }
 
 #contentContainer {
@@ -64,13 +57,13 @@
     grid-row: 2 / span 1;
 }
 
-#lostItemContainer {    
+.lostItemContainer {    
     display:block;
     object-fit: contain;
 
     max-width: 100%;
     max-height: 100%;
-    margin: 0px;
+    margin: 0;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5px;

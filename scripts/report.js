@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 //----------------------------------------
 //  Your web app's Firebase configuration
 //----------------------------------------
@@ -21,6 +22,9 @@ const db = firebase.firestore();
 =======
 >>>>>>> 6f37e743d4d328edb0240b136e8816ab9e9a8a4e
 (() => {
+=======
+function captureMediaStream() {
+>>>>>>> 5669a3e17907c377028f186f96d22f6d3ce48e51
     const width = 600;
     let height = 0;
     let streaming = false;
@@ -95,9 +99,8 @@ const db = firebase.firestore();
             },
             false,
         );
-    
         clearPhoto();
-        }
+    }
         function clearPhoto() {
             const context = canvas.getContext("2d");
             context.fillStyle = "#AAA";
@@ -121,7 +124,9 @@ const db = firebase.firestore();
             }
         }
         window.addEventListener("load", startup, false);
-})();
+}
+
+captureMediaStream();
 
 function coverOn() {
     document.getElementById("check").style.display = "block";
