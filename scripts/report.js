@@ -7,24 +7,16 @@ function captureMediaStream() {
     let photo = null;
     let startButton = null;
 
-// (() => {
-//     const width = 600;
-//     let height = 0;
-//     let streaming = false;
-//     let video = null;
-//     let canvas = null;
-//     let photo = null;
-//     let startButton = null;
-  
+
     function showViewLiveResultButton() {
         if (window.self !== window.top) {
             return true;
         }
         return false;
     }
-  
 
-function startup() {
+
+    function startup() {
         //Checks to see if the camera is at the top of the page
         if (window.self !== window.top) {
             return;
@@ -127,22 +119,20 @@ function savePostIDforUser(postDocID) {
     })
 }
 
-//Grabs the geolocation if the user enables it.
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-            savePost(position.coords.latitude, position.coords.longitude);
-        })
-    } else {
-        console.log("Geolocation is not supported by this browser.");
-    }
-}
+// //Grabs the geolocation if the user enables it.
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(position => {
+//             savePost(position.coords.latitude, position.coords.longitude);
+//         })
+//     } else {
+//         console.log("Geolocation is not supported by this browser.");
+//     }
+// }
 
 //Creates the post of a lost item and sends it to the database.
 //Posts include the user ID, item tag, description, time, geolocation and the data URL of the picture ()
-function savePost(lat, lng) {
-    getLocation();
-
+function savePost() {
     var desc = document.getElementById("description").value;
     var tag = document.getElementById("selection").value;
     var photoData = document.getElementById("canvas").toDataURL();
@@ -155,12 +145,24 @@ function savePost(lat, lng) {
                 description: desc,
                 image: photoData,
                 time: firebase.firestore.FieldValue
-                    .serverTimestamp(),
-                latitude: lat,
-                longitude: lng
+                    .serverTimestamp()
             }).then(function (docRef) {
                 savePostIDforUser(docRef.id);
+                console.log(docRef.id);
+                navigator.geolocation.getCurrentPosition(position => {
+                    var latit = position.coords.latitude;
+                    var longi = position.coords.longitude;
+                    console.log(longi + " " + latit);
+
+                    db.collection("posts").doc(docRef.id).update({
+                        latitude: latit,
+                        longitude: longi
+                    }).catch((error) => {
+                        console.error("Error writing document: ", error);
+                    });
+                })
             })
+
         } else {
             console.log("No user is logged in.");
         }

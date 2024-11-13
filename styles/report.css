@@ -1,131 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-   @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body, html {
-    font-family: "Raleway", Arial, sans-serif;
-}
-
-/* General Styling */
-body, .post-container {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    color: #333;
-    background-color: #f7f7f7;
-}
-
-.post-container {
-    padding: 20px;
-    max-width: 500px;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin-top: 20px;
-}
-
-h2 {
-    color: #007bff;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Form Styling */
-label {
-    font-weight: bold;
-    margin-top: 15px;
-    color: #555;
-    display: block;
-}
-
-input[type="file"],
-input[type="text"],
-textarea,
-select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #f9f9f9;
-}
-
-input[type="file"] {
-    border: none;
-}
-
-.preview-image {
-    width: 100%;
-    max-height: 300px;
-    margin-top: 15px;
-    display: none;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-}
-
-button[type="submit"] {
-    width: 100%;
-    padding: 12px;
-    margin-top: 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-/* Bottom Navigation Bar */
-.bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 60px;
-    background-color: #007bff;
-    border-top: 1px solid #ddd;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.bottom-nav a {
-    flex: 1;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 16px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.bottom-nav a:hover {
-    background-color: #0056b3;
-=======
 #video {
-=======
-/* #video {
->>>>>>> 24e50591b7989ea54a18e6f33092e4a9ee88fee3
-=======
-#video {
->>>>>>> 6f37e743d4d328edb0240b136e8816ab9e9a8a4e
     width: 100%;
 }
 
@@ -138,7 +11,7 @@ button[type="submit"]:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 2;
     overflow-y: scroll;
 }
@@ -162,7 +35,7 @@ button[type="submit"]:hover {
 button {
     padding: 10px;
     font-family: 'Raleway', Arial, sans-serif;
-    background-color: rgb(0,0,0);
+    background-color: rgb(0, 0, 0);
     font-weight: 700;
     text-align: center;
     color: white;
@@ -182,16 +55,11 @@ form {
     align-items: center;
 }
 
-<<<<<<< HEAD
-#confirmContainer {
-    margin: 1% 0;
-    flex-direction: column;
->>>>>>> b3f9b3bf01c70820f1e28220b0c533b828ea5c40
-=======
-select, textarea, input {
+select,
+textarea,
+input {
     margin: 0.3% 0;
     font-family: 'Raleway', Arial, sans-serif;
->>>>>>> 24e50591b7989ea54a18e6f33092e4a9ee88fee3
 }
 
 select {
@@ -201,7 +69,7 @@ select {
 #submit {
     padding: 10px;
     font-family: 'Raleway', Arial, sans-serif;
-    background-color: rgb(0,0,0);
+    background-color: rgb(0, 0, 0);
     font-weight: 700;
     text-align: center;
     color: white;
@@ -212,6 +80,5 @@ select {
 
 #submit:hover {
     background-color: white;
-    color: black;    
+    color: black;
 }
-
