@@ -122,17 +122,6 @@ function savePostIDforUser(postDocID) {
     })
 }
 
-// //Grabs the geolocation if the user enables it.
-// function getLocation() {
-//     if (navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(position => {
-//             savePost(position.coords.latitude, position.coords.longitude);
-//         })
-//     } else {
-//         console.log("Geolocation is not supported by this browser.");
-//     }
-// }
-
 //Creates the post of a lost item and sends it to the database.
 //Posts include the user ID, item tag, description, time, geolocation and the data URL of the picture ()
 function savePost() {
