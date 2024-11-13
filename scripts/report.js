@@ -1,3 +1,6 @@
+//captureMediaStream() allows the user to take a picture from the website itself and take a photo of lost items.
+//Copied and modified from Mozilla - Taking still photos with getUserMedia()
+//https://developer.mozilla.org/en-US/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos
 function captureMediaStream() {
     const width = 600;
     let height = 0;
