@@ -29,7 +29,6 @@
     <main>
         <div class="camera">
             <video id="video">Video stream not available.</video>
-            <button id="start-button" onclick="coverOn()">Take photo</button>
         </div>
         <canvas id="canvas" style="display: none"></canvas>
         <div id="check" class="output">
@@ -50,9 +49,10 @@
         </div>
 
     </main>
-    <footer id="footerPlaceholder"></footer>
+    <footer>
+        <button id="start-button" onclick="coverOn()"></button>
+    </footer>
     <script src="./scripts/firebaseAPI_BBY03.js"></script>
-    <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/report.js"></script>
 </body>
 
