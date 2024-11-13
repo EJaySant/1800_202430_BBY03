@@ -6,7 +6,8 @@ function displayCards(collection) {
             allPosts.forEach(doc => {
                 var tags = doc.data().item;
                 var description = doc.data().description;
-                var location = doc.data().geolocation;
+                var latitude = doc.data().latitude;
+                var longitude = doc.data().longitude;
                 var time = doc.data().time.toDate();
                 var data = doc.data().image;
 
@@ -17,9 +18,11 @@ function displayCards(collection) {
                 newcard.querySelector('.tagHolder').innerHTML = "#" + tags;
                 newcard.querySelector('.descriptionHolder').innerHTML = description;
                 newcard.querySelector('.timeHolder').innerHTML = time;
+                newcard.querySelector('.latitude').innerHTML = "Latitude: " + latitude;
+                newcard.querySelector('.longitude').innerHTML = "Longitude: " + longitude;
 
-                if (location && location.latitude && location.longitude) {
-                    let locationUrl = `https://www.google.com/maps?q=${location.latitude},${location.longitude}`;
+                if (latitude && longitude) {
+                    let locationUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
                     newcard.querySelector('.locationHolder').innerHTML = `Location: <a href="${locationUrl}" target="_blank">View on Map</a>`;
                 } else {
                     newcard.querySelector('.locationHolder').innerHTML = "Location not available";
@@ -27,13 +30,13 @@ function displayCards(collection) {
 
                 let directionsButton = newcard.querySelector('.getDirectionsButton');
                 directionsButton.onclick = function () {
-                    if (location && location.latitude && location.longitude) {
+                    if (latitude && longitude) {
                         if ("geolocation" in navigator) {
                             navigator.geolocation.getCurrentPosition(function (position) {
                                 let userLat = position.coords.latitude;
                                 let userLng = position.coords.longitude;
 
-                                let directionsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${location.latitude},${location.longitude}`;
+                                let directionsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${latitude},${longitude}`;
 
                                 window.open(directionsUrl, "_blank");
                             }, function (error) {
