@@ -1,14 +1,17 @@
 function displayCards(collection) {
     let cardTemplate = document.getElementById("postCardTemplate");
 
-    db.collection(collection).get()
+    db.collection(collection)
+        .orderBy("time", "desc")
+        .limit(20)
+        .get()
         .then(allPosts => {
             allPosts.forEach(doc => {
                 var tags = doc.data().item;
                 var description = doc.data().description;
                 var latitude = doc.data().latitude;
                 var longitude = doc.data().longitude;
-                var time = doc.data().time.toDate();
+                var time = doc.data().time.toDate().toDateString();
                 var data = doc.data().image;
 
                 let newcard = cardTemplate.content.cloneNode(true);
