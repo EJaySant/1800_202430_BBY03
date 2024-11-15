@@ -61,16 +61,19 @@
     margin-left: 20px;
 }
 
-.lostItemImage {    
+.lostItemContainer {    
     display: block;
     object-fit: cover;
     border-radius: 25px;
+
+    outline: 2px solid;
 
     max-width: 100%;
     max-height: 100%;
     margin: 0;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 5%; 
 }
 
 @media screen and (min-width: 800px) {
