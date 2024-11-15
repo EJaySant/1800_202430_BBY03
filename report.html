@@ -32,20 +32,25 @@
         </div>
         <canvas id="canvas" style="display: none"></canvas>
         <div id="check" class="output">
-            <img id="photo" alt="The screen capture will appear in this box.">
-            <button id="confirmPhoto" onclick="coverOff()">Take Another Photo</button>
-            <form id="lostItemForm">
-                <select id="selection" required>
-                    <option></option>
-                    <option value="umbrella">Umbrella</option>
-                    <option value="water">Waterbottle</option>
-                    <option value="keys">Keys</option>
-                    <option value="wallet">Wallet</option>
-                </select>
-                <textarea id="description" rows="6" cols="30"
-                    placeholder="Add an optional description of the item"></textarea>
-                <input type="button" id="submit" value="submit"">
-            </form>
+            <div>
+                <img id="photo" alt="The screen capture will appear in this box.">
+                <button id="confirmPhoto" onclick="coverOff()">Take Another Photo</button>
+                <form id="lostItemForm">
+                    <div>
+                        <label for="selection">Item:</label>
+                        <select id="selection" required>
+                            <option disabled selected value style="display: none;"></option>
+                            <option value="umbrella">Umbrella</option>
+                            <option value="water">Waterbottle</option>
+                            <option value="keys">Keys</option>
+                            <option value="wallet">Wallet</option>
+                        </select>
+                    </div>
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" placeholder="Add an optional description of the item">
+                    <input type="button" id="submit" value="submit"">
+                </form>
+            </div>
         </div>
 
     </main>

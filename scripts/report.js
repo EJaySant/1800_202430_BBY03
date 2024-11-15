@@ -168,6 +168,8 @@ function resetForm() {
 }
 
 document.getElementById("submit").addEventListener("click", () => {
-    savePost();
-    resetForm();
+    if (!document.getElementById("selection").value == '') {
+        savePost();
+        resetForm();
+    }
 }); 
