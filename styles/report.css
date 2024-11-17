@@ -176,7 +176,13 @@ input:hover {
     color: black;
 }
 
-#exitConfirm:hover, #exitConfirm:active {
+#exitConfirm:hover, #exitConfirm:active, #clearForm:hover, #clearForm:active {
     background-color: rgba(128, 128, 128, 0.5);
     color: black;
+}
+
+#clearForm {
+    background-color: rgb(170, 170, 170);
+    border-radius: 5px;
+    padding: 5px;
 }

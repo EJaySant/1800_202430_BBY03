@@ -38,7 +38,14 @@ function captureMediaStream() {
                 video.play();
             })
             .catch((err) => {
+                let photoBtn = document.getElementById("start-button");
+
                 console.error(`An error occurred: ${err}`);
+
+                photoBtn.disabled = true;
+                photoBtn.style.backgroundColor = "grey";
+                photoBtn.style.cursor = "default";
+
                 alert("Please enable camera access");
             });
 
@@ -165,6 +172,7 @@ function savePost() {
 
 function resetForm() {
     document.getElementById("lostItemForm").reset();
+    document.getElementById("selection").style.boxShadow = "";
 }
 
 function checkSelect() {
@@ -194,6 +202,6 @@ function submitPost() {
         document.getElementById("selection").style.boxShadow = "0 0 10px red";
     }
 }
-document.getElementById("submit").addEventListener("click", submitPost); 
+document.getElementById("submit").addEventListener("click", submitPost);
 
 
