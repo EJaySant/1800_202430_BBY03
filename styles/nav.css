@@ -16,6 +16,7 @@ nav {
     align-items: center;
     justify-content: center;
     position: sticky;
+    z-index: 1;
     top: 0;
 }
 
@@ -28,15 +29,14 @@ nav > a {
 /* Footer Styling */
 footer {
     position: fixed;
-    height: 6vh;
+    height: 7vh;
     bottom: 0;
     width: 100%;
     grid-template-columns: repeat(3, 1fr);
     background-color: rgb(255, 248, 220);
     padding: 1% 0;
-    display: flex;
-    flex-flow: nowrap row;
-    justify-content: space-around;
+    display: grid;
+    justify-items: center;
     align-items: center;
     transition: height 0.3s ease;
 }
@@ -51,6 +51,20 @@ footer {
     width: 40px;
     padding: 20%;
     border-radius: 25px;
+}
+
+#leftNavButton {
+    font-size: 24pt;
+}
+
+#centerNavButton {
+    grid-column: 2 / span 1;
+    display: flex;
+    justify-self: center;
+}
+
+#rightNavButton {
+    /*Add the profile button css here*/
 }
 
 @media screen and (min-width: 1101px) {
