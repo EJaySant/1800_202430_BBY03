@@ -66,5 +66,14 @@ function displayCards(collection) {
 displayCards("posts");
 
 document.getElementById("load").addEventListener("click", () => {
+    resetDisplayCards();
     loadLimit = 20;
+    displayCards("posts");
 })
+
+function resetDisplayCards() {
+    let cardsArray = document.getElementsByClassName("card");
+    let length = cardsArray.length;
+    for (var i = 0; i < length; i++)
+        document.getElementById("postsHere").removeChild(cardsArray[0]);
+}
