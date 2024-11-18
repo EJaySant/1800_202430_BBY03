@@ -1,9 +1,11 @@
+var loadLimit = 10;
+
 function displayCards(collection) {
     let cardTemplate = document.getElementById("postCardTemplate");
 
     db.collection(collection)
         .orderBy("time", "desc")
-        .limit(20)
+        .limit(loadLimit)
         .get()
         .then(allPosts => {
             allPosts.forEach(doc => {
@@ -62,3 +64,7 @@ function displayCards(collection) {
 }
 
 displayCards("posts");
+
+document.getElementById("load").addEventListener("click", () => {
+    loadLimit = 20;
+})
