@@ -38,7 +38,14 @@ function captureMediaStream() {
                 video.play();
             })
             .catch((err) => {
+                let photoBtn = document.getElementById("start-button");
+
                 console.error(`An error occurred: ${err}`);
+
+                photoBtn.disabled = true;
+                photoBtn.style.backgroundColor = "grey";
+                photoBtn.style.cursor = "default";
+
                 alert("Please enable camera access");
             });
 
@@ -109,6 +116,7 @@ function coverOn() {
 //Removes the submission section from view.
 function coverOff() {
     document.getElementById("check").style.display = "none";
+    document.getElementById("selection").style.boxShadow = "";
 }
 
 //Updates the user's document with the myposts array and associated post.
@@ -159,17 +167,41 @@ function savePost() {
             console.log("No user is logged in.");
         }
     })
-    resetForm();
     coverOff();
 }
 
 function resetForm() {
     document.getElementById("lostItemForm").reset();
+    document.getElementById("selection").style.boxShadow = "";
 }
 
-document.getElementById("submit").addEventListener("click", () => {
-    if (!document.getElementById("selection").value == '') {
-        savePost();
-        resetForm();
+function checkSelect() {
+    if (document.getElementById("selection").value != '') {
+        document.getElementById("selection").style.boxShadow = "0 0 10px rgb(0, 179, 30)";
     }
-}); 
+}
+document.getElementById("selection").addEventListener("change", checkSelect);
+
+function doubleCheck() {
+    document.getElementById("confirmContainer").style.display = "block";
+    document.getElementById("exitConfirm").addEventListener("click", (event) => {
+        document.getElementById("confirmContainer").style.display = "none";
+    });
+    document.getElementById("confirm").addEventListener("click", (event) => {
+        savePost();
+        coverOff();
+        document.getElementById("confirmContainer").style.display = "none";
+        resetForm();
+    });
+}
+
+function submitPost() {
+    if (document.getElementById("selection").value != '') {
+        doubleCheck();
+    } else {
+        document.getElementById("selection").style.boxShadow = "0 0 10px red";
+    }
+}
+document.getElementById("submit").addEventListener("click", submitPost);
+
+
