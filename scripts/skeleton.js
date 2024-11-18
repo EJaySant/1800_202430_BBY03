@@ -18,15 +18,3 @@ function loadSkeleton() {
     });
 }
 loadSkeleton();
-
-function hideFooter() {
-    let footerElement = document.getElementById("footernav");
-    let centerNav = document.getElementById("centerNavButton");
-    if (footerElement.style.height === "6vh") {
-        footerElement.style.height = "5px";
-        centerNav.style.display = "none";
-    } else {
-        footerElement.style.height = "6vh";
-        centerNav.style.display = "block";
-    }
-}
