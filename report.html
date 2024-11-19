@@ -34,7 +34,7 @@
         <div id="check" class="output">
             <div>
                 <img id="photo" alt="The screen capture will appear in this box.">
-                <button id="confirmPhoto" onclick="coverOff()">Take Another Photo</button>
+                <button id="cancelPhoto" onclick="coverOff(), resetForm()">Cancel</button>
                 <form id="lostItemForm">
                     <div>
                         <label for="selection">Item:</label>
@@ -55,7 +55,7 @@
                     </div>
                     <label for="description">Description:</label>
                     <textarea type="text" id="description" placeholder="Add an optional description of the item"></textarea>
-                    <button id='clearForm' onclick='resetForm()'>Reset</button>
+                    <button id="clearForm" onclick="resetForm()">Reset</button>
                     <input type="button" id="submit" value="submit"">
                 </form>
             </div>

@@ -23,8 +23,8 @@ function displayCards(collection) {
                 newcard.querySelector('.tagHolder').innerHTML = "#" + tags;
                 newcard.querySelector('.descriptionHolder').innerHTML = description;
                 newcard.querySelector('.timeHolder').innerHTML = time;
-                newcard.querySelector('.latitude').innerHTML = "Latitude: " + latitude;
-                newcard.querySelector('.longitude').innerHTML = "Longitude: " + longitude;
+                // newcard.querySelector('.latitude').innerHTML = "Latitude: " + latitude;
+                // newcard.querySelector('.longitude').innerHTML = "Longitude: " + longitude;
 
                 if (latitude && longitude) {
                     let locationUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
@@ -67,7 +67,7 @@ displayCards("posts");
 
 document.getElementById("load").addEventListener("click", () => {
     resetDisplayCards();
-    loadLimit = 20;
+    loadLimit += 10;
     displayCards("posts");
 })
 

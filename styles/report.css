@@ -176,13 +176,31 @@ input:hover {
     color: black;
 }
 
-#exitConfirm:hover, #exitConfirm:active, #clearForm:hover, #clearForm:active {
+#exitConfirm:hover, #exitConfirm:active, 
+#clearForm:hover, #clearForm:active {
     background-color: rgba(128, 128, 128, 0.5);
     color: black;
 }
 
-#clearForm {
+#clearForm, #cancelPhoto {
     background-color: rgb(170, 170, 170);
     border-radius: 5px;
     padding: 5px;
+}
+
+#exitButton {
+    cursor: pointer;
+    display: flex;
+    align-content: center;
+    text-align: center;
+}
+
+#cancelPhoto {
+    background-color: red;
+    padding: 8px;
+}
+
+#cancelPhoto:hover, #cancelPhoto:active {
+    background-color: rgb(255, 114, 114);
+    color: rgb(122, 0, 0);
 }
