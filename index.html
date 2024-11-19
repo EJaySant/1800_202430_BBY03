@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Findr</title>
     <meta name="comp1800 project" content="BBY03 Project">
@@ -15,29 +16,32 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> 
-  
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="./styles/nav.css">
 </head>
+
 <body>
     <nav>
         <a href="">Findr</a>
     </nav>
-    
-    <main>
-        <div>
-            <h1>Findr</h1>
-            <p>Our application serves to help the community find their lost item. It is a
-                community-run application, which means that when the community will find the lost item, they will post it on
-                the application for the owner. Once the owner wants to find their lost item, they can browse or search for
-                their lost item on the application
-            </p>
-            <a href="login.html">Log in</a>
-        </div>
-    </main>
 
+    <div class="hero">
+        <img src="/1800_202430_BBY03/images/lostw.jpg" alt="Findr Hero Image">
+        <button onclick="location.href='login.html'">Log in</button>
+    </div>
+
+    <section class="about">
+        <h2>About Us</h2>
+        <p>
+            Findr is a community-driven app that helps people reconnect with their lost belongings.
+            Users can post lost items for others to see and search for items they may have misplaced.
+            By working together, we create a trustworthy and supportive network for everyone.
+        </p>
+
+    </section>
     <script src="./scripts/firebaseAPI_BBY03.js"></script>
     <script src="./scripts/authentication.js"></script>
     <script src="./scripts/script.js"></script>
