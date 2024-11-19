@@ -21,9 +21,21 @@ nav {
 }
 
 nav > a {
-    display: block;
-    text-align: center;
+    display: flex;
+    font-size: 36pt;
     font-weight: 900;
+}
+
+nav > a::before {
+    display: inline-block;
+    margin-right: 5px;
+    content: "";
+    width: 50px;
+    background-image: url(../images/findr.PNG);
+    background-position-x: right;
+    background-repeat: no-repeat;
+    background-size: 6vh;
+    filter: drop-shadow(0 0 0);
 }
 
 /* Footer Styling */
