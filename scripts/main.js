@@ -1,3 +1,8 @@
+function hideElement(element) {
+    element.style.display = "none";
+}
+
+
 var loadLimit = 10;
 
 function displayCards(collection) {
@@ -28,6 +33,11 @@ function displayCards(collection) {
                 newcard.querySelector('.lostItemContainer').setAttribute("alt", tags);
                 newcard.querySelector('.heading').innerHTML += tags.toString().charAt(0).toUpperCase() + tags.toString().substring(1) + " found";
                 newcard.querySelector('.descriptionHolder').innerHTML = description;
+
+                if (description == "") {
+                    hideElement(newcard.querySelector('.descriptionHolder'));
+                }
+
                 if (days >= 1) {
                     newcard.querySelector('.timeHolder').innerHTML = "Found " + days + " day" + ((days == 1) ? "" :"s") + " ago";
                 } else if (hours >= 1) {
@@ -38,14 +48,16 @@ function displayCards(collection) {
                     newcard.querySelector('.timeHolder').innerHTML = "Found " + seconds + " second" + ((seconds == 1) ? "" :"s") + " ago";
                 }
 
+                let directionsButton = newcard.querySelector('.getDirectionsButton');
+
                 if (latitude && longitude) {
                     let locationUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
-                    newcard.querySelector('.locationHolder').innerHTML = `Location: <a href="${locationUrl}" target="_blank">View on Map</a>`;
+                    newcard.querySelector('.locationHolder').innerHTML = `Location:<br><a href="${locationUrl}" target="_blank">View on Map</a>`;
                 } else {
                     newcard.querySelector('.locationHolder').innerHTML = "Location not available";
+                    hideElement(directionsButton);
                 }
 
-                let directionsButton = newcard.querySelector('.getDirectionsButton');
                 directionsButton.onclick = function () {
                     if (latitude && longitude) {
                         if ("geolocation" in navigator) {
@@ -66,6 +78,7 @@ function displayCards(collection) {
                         }
                     } else {
                         console.log("Post location is missing or incomplete.");
+                        hideButton(directionsButton);
                         alert("The post's location is not available.");
                     }
                 };
@@ -74,13 +87,12 @@ function displayCards(collection) {
             });
         })
 }
-
 displayCards("posts");
 
 document.getElementById("load").addEventListener("click", () => {
     resetDisplayCards();
     loadLimit += 10;
-    displayCards("posts");
+    displayCards();
 })
 
 function resetDisplayCards() {
@@ -89,3 +101,12 @@ function resetDisplayCards() {
     for (var i = 0; i < length; i++)
         document.getElementById("postsHere").removeChild(cardsArray[0]);
 }
+
+// var searchBar = document.getElementById("searchBar");
+// function findPost() {
+//     let input = searchBar.value;
+//     db.collection("posts")
+//         .orderBy("time")
+//         .get().then();
+// }
+// searchBar.addEventListener("change", findPost);
