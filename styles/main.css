@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-body {
-    background-image: 
-        linear-gradient(rgb(255, 204, 0), rgb(255, 233, 143)), 
-        linear-gradient(to right, rgb(255, 244, 200), rgb(255, 233, 143)), 
-        url("../images/mainbackground.jpg");
-    background-position-x: center;
-    background-blend-mode: color, multiply;
-}
 
 main {
     display: grid;
@@ -47,24 +39,27 @@ main {
 }
 
 .card {
-    width: 75%;
     display: grid;
     justify-content: center;
     background-color: white;
     border-radius: 10px;
     justify-items: center;
+    align-items: center;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    padding-bottom: 10px;
     box-shadow: 0 0 5px;
+    grid-template-columns: 30% 40% 30%;
+    text-align: center;
 }
 
 .card img {
     width: 100%;
+    grid-column: 1 / span 3;
     object-fit: cover;
 }
 
 h1 {
+    grid-column: 1 / span 3;
     width: 100%;
     text-align: center;
     border-bottom: 1px solid black;
@@ -78,11 +73,17 @@ h1 {
     color: rgb(109, 109, 109);
     font-weight: 700;
     font-style: italic;
+    width: 100%;
+    grid-column: 3 / span 1;
 }
 
 .descriptionHolder {
-    padding: 30px;
+    grid-column: 1 / span 3;
+    box-sizing: border-box;
+    padding: 30px 15px;
     font-size: 14pt;
+    width: 100%;
+    font-weight: 500;
 }
 
 .locationHolder::before {
@@ -98,7 +99,7 @@ h1 {
 }
 
 .locationHolder {
-    margin-bottom: 10px;
+    margin: 10px 0;
 }
 
 .locationHolder a {
