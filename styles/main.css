@@ -1,130 +1,152 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-#main {
+body {
+    background-image: 
+        linear-gradient(rgb(255, 204, 0), rgb(255, 233, 143)), 
+        linear-gradient(to right, rgb(255, 244, 200), rgb(255, 233, 143)), 
+        url("../images/mainbackground.jpg");
+    background-position-x: center;
+    background-blend-mode: color, multiply;
+}
+
+main {
+    display: grid;
+    justify-content: center;
+    gap: 10px;
     margin-bottom: 80px;
-    background-image: url(/images/holographic\ background.webp );
 }
 
 /* serach bar */
 #searchBarContainer {
     display: flex;
-    justify-content: space-between;
-    justify-self: center;
-    align-items: center;
-    margin: 10px calc(1vh + 3vw);
-    border-radius: 50px;
-    outline: 2px solid;
-    outline-color: rgb(0, 170, 222);
-    height: 8vh;
-    width: 70%;
-
+    margin: 20px 0;
 }
 
 #searchBar {
     width: 100%;
-    height: 100%;
-    border-radius: 50px;
-    outline: none;
-    border: none;
-    justify-self: left;
-    /* margin-left: 60px; */
-}
-
-/* #searchButton {
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px;
     background-image: url(../images/search-icon.png);
-    background-size: 50px;
-    background-position: center;
+    background-position: left;
+    background-size: contain;
     background-repeat: no-repeat;
-    justify-self: end;
-    margin-right: 50px;
-    width: 90px;
-    height: 90px;
-} */
-
-* {
-    color: rgb(255, 255, 255)
+    text-indent: 40px;
 }
 
-.card a {
-    color: rgb(0, 170, 222)
+#searchBar:focus {
+    box-shadow: inset 0 0 3px black;
 }
 
 /* Lost Item Posts */
-#heading {
-    margin-left: auto;
-    margin-right: auto;
-}
-
 #postsHere {
     display: flex;
-    justify-content: space-around;
-    flex-flow: column;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 20px;
 }
 
 .card {
-    display: flex;
-    flex-flow: column wrap;
-
-    margin-bottom: 20px;
-    margin-left: 5%;
-    margin-right: 5%;
-
-    border-radius: 25px;
-
-    box-shadow: 2px 2px 15px rgba(0, 195, 255, 1);
-    background-color: rgba(0, 195, 255, 0.5);
+    width: 75%;
+    display: grid;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    justify-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 0 5px;
 }
 
-#contentContainer {
-    margin-left: 30px;
-}
-
-.lostItemContainer {    
-    display: block;
+.card img {
+    width: 100%;
     object-fit: cover;
-
-    box-shadow: 2px 2px 10px rgba(0, 170, 222, 0.4);
-    /* outline: 2px solid; */
-
-    max-width: 80%;
-    max-height: auto;
-
-    margin: 0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15px; 
 }
 
-#directionButton {
-    background-color: rgba(0, 195, 255, 0.5);
+h1 {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid black;
+    background-color: rgb(255, 238, 169);
+    padding: 5px 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.timeHolder {
+    color: rgb(109, 109, 109);
+    font-weight: 700;
+    font-style: italic;
+}
+
+.descriptionHolder {
+    padding: 30px;
+    font-size: 14pt;
+}
+
+.locationHolder::before {
+    content: "";
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    background-image: url(../images/marker.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.locationHolder {
+    margin-bottom: 10px;
+}
+
+.locationHolder a {
+    color:rgb(255, 153, 0);
+}
+
+.locationHolder a:hover, .locationHolder a:active {
+    color:rgb(214, 171, 0);
+}
+
+.getDirectionsButton {
+    cursor: pointer;
     border: none;
-    font-size: medium;
-    font-family: "Raleway", Arial, sans-serif;
+    background-color: rgb(0, 123, 255);
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px black;
+}
+
+.getDirectionsButton:hover, .getDirectionsButton:active {
+    background-color: rgb(0, 101, 209);
+}
+
+.getDirectionsButton:active {
+    box-shadow: inset 0 0 5px black;
 }
 
 #load {
-    color: black;
-    width: 96vw;
-    height: 10vh;
-
+    justify-self: center;
+    cursor: pointer;
     border: none;
-
-    font-family: "Raleway", Arial, sans-serif;
-
-    box-shadow: 2px 2px 15px rgba(0, 195, 255, 1);
-    background-color: rgba(0, 195, 255, 0.5);
-
-    transform: translate(1vw);
+    background-color: rgb(122, 122, 122);
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    width: 50%;
+    box-shadow: 1px 1px 3px black;
 }
 
-@media screen and (min-width: 800px) {
-    #postsHere {
-        display: flex;
-        flex-flow: row wrap;
-    }
+#load:hover, #load:active {
+    background-color: rgb(104, 104, 104);
+}
 
-    .card {
-        width: 50%;
-    }
+#load:active {
+    box-shadow: inset  0 0 5px black;
+}
 
+button, input[type="button"] {
+    font-weight: 600;
 }

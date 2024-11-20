@@ -31,25 +31,19 @@
     <nav>
         <a href="">Findr</a>
     </nav>
-    <main id="main">
+    <main>
         <div id="searchBarContainer">
             <input type="text" placeholder="Search" id="searchBar">
-            <label id="searchButton" for="searchBar"></label>
         </div>
             <div id="postsHere">
                 <template id="postCardTemplate">
                     <div class="card">
-                        <div id="heading"><h1>FOUND</h1></div>
+                        <h1 class="heading"></h1>
                         <img class="lostItemContainer" src="./images/test_image.jpg" alt="..">
-                        <div id="contentContainer">
-                            <p class="timeHolder"></p>
-                            <!-- <p class="latitude"></p>
-                            <p class="longitude"></p> -->
-                            <a class="tagHolder"></a>
-                            <p class="descriptionHolder"></p>
-                            <p class="locationHolder"></p>
-                            <button class="getDirectionsButton" id="directionButton">Get Directions</button>
-                        </div>
+                        <p class="timeHolder"></p>
+                        <p class="descriptionHolder"></p>
+                        <p class="locationHolder"></p>
+                        <button class="getDirectionsButton">Get Directions</button>
                     </div>
                 </template>
             </div>

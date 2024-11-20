@@ -2,6 +2,7 @@ var loadLimit = 10;
 
 function displayCards(collection) {
     let cardTemplate = document.getElementById("postCardTemplate");
+    let currentTime =  Date.now();
 
     db.collection(collection)
         .orderBy("time", "desc")
@@ -13,18 +14,29 @@ function displayCards(collection) {
                 var description = doc.data().description;
                 var latitude = doc.data().latitude;
                 var longitude = doc.data().longitude;
-                var time = doc.data().time.toDate().toDateString();
                 var data = doc.data().image;
+
+                let elapsed = currentTime - doc.data().time.toDate();
+                var seconds = Math.floor(elapsed / 1000);
+                var minutes = Math.floor(elapsed / 60000);
+                var hours = Math.floor(elapsed / 3600000);
+                var days = Math.floor(elapsed / 86400000);
 
                 let newcard = cardTemplate.content.cloneNode(true);
 
                 newcard.querySelector('.lostItemContainer').setAttribute("src", data);
                 newcard.querySelector('.lostItemContainer').setAttribute("alt", tags);
-                newcard.querySelector('.tagHolder').innerHTML = "#" + tags;
+                newcard.querySelector('.heading').innerHTML += tags.toString().charAt(0).toUpperCase() + tags.toString().substring(1) + " found";
                 newcard.querySelector('.descriptionHolder').innerHTML = description;
-                newcard.querySelector('.timeHolder').innerHTML = time;
-                // newcard.querySelector('.latitude').innerHTML = "Latitude: " + latitude;
-                // newcard.querySelector('.longitude').innerHTML = "Longitude: " + longitude;
+                if (days >= 1) {
+                    newcard.querySelector('.timeHolder').innerHTML = "Found " + days + " day" + ((days == 1) ? "" :"s") + " ago";
+                } else if (hours >= 1) {
+                    newcard.querySelector('.timeHolder').innerHTML = "Found " + hours + " hour" + ((hours == 1) ? "" :"s") + " ago";
+                } else if (minutes >= 1) {
+                    newcard.querySelector('.timeHolder').innerHTML = "Found " + minutes + " minute" + ((minutes == 1) ? "" :"s") + " ago";
+                }else {
+                    newcard.querySelector('.timeHolder').innerHTML = "Found " + seconds + " second" + ((seconds == 1) ? "" :"s") + " ago";
+                }
 
                 if (latitude && longitude) {
                     let locationUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
