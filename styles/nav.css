@@ -75,9 +75,9 @@ footer {
     justify-self: center;
 }
 
-#rightNavButton {
-    /*Add the profile button css here*/
-}
+/*#rightNavButton {
+    /*Add the profile button css here
+}*/
 
 @media screen and (min-width: 1101px) {
     .select-icon {
