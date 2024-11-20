@@ -1,0 +1,110 @@
+#mainProfile{
+    margin-bottom: 80px;
+}
+
+#form {
+    display:flex;
+    justify-content: center;
+}
+
+#profile {
+    display: flex;
+    justify-content: center;
+}
+
+#profileIcon {
+    height: 20vh;
+    margin-top: 1em;
+}
+
+#form {
+    margin: 1em;
+}
+
+h1 {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+
+/* Lost Item Post */
+#heading {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#postsHere {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column;
+}
+
+.card {
+    display: flex;
+    flex-flow: column wrap;
+    width: 30%;
+
+    margin-bottom: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+
+    border-radius: 25px;
+    outline: 1px solid;
+
+    /* box-shadow: 2px 2px 15px rgb(255, 255, 255); */
+    background-color: rgb(255, 248, 200);
+}
+
+#contentContainer {
+    margin-left: 30px;
+}
+
+.lostItemContainer {    
+    display: block;
+    object-fit: cover;
+
+    box-shadow: 2px 2px 10px rgba(0, 170, 222, 0.4);
+    /* outline: 2px solid; */
+
+    max-width: 80%;
+    max-height: auto;
+
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px; 
+}
+
+#directionButton {
+    background-color: rgba(0, 195, 255, 0.5);
+    border: none;
+    font-size: medium;
+    font-family: "Raleway", Arial, sans-serif;
+}
+
+#load {
+    color: black;
+    width: 96vw;
+    height: 10vh;
+
+    border: none;
+
+    font-family: "Raleway", Arial, sans-serif;
+
+    box-shadow: 2px 2px 15px rgba(0, 195, 255, 1);
+    background-color: rgba(0, 195, 255, 0.5);
+
+    transform: translate(1vw);
+}
+
+@media screen and (min-width: 800px) {
+    #postsHere {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .card {
+        width: 40%;
+    }
+
+}

@@ -41,13 +41,14 @@ nav > a::before {
 /* Footer Styling */
 footer {
     position: fixed;
-    height: 7vh;
+    height: vh;
     bottom: 0;
     width: 100%;
     grid-template-columns: repeat(3, 1fr);
     background-color: rgb(255, 248, 220);
     padding: 1% 0;
     display: grid;
+    align-content: center;
     justify-items: center;
     align-items: center;
     transition: height 0.3s ease;
@@ -75,9 +76,9 @@ footer {
     justify-self: center;
 }
 
-#rightNavButton {
-    /*Add the profile button css here*/
-}
+/*#rightNavButton {
+    /*Add the profile button css here
+}*/
 
 @media screen and (min-width: 1101px) {
     .select-icon {
