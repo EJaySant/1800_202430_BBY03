@@ -5,8 +5,15 @@
     padding: 0;
 }
 
-body, html {
+body,
+html {
     font-family: "Raleway", Arial, sans-serif;
+    background-image:
+        linear-gradient(rgb(255, 204, 0), rgb(255, 233, 143)),
+        linear-gradient(to right, rgb(255, 244, 200), rgb(255, 233, 143)),
+        url("../images/mainbackground.jpg");
+    background-position-x: center;
+    background-blend-mode: color, multiply;
 }
 
 .small-icon {

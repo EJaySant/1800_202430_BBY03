@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-body {
-    background-image: 
-        linear-gradient(rgb(255, 204, 0), rgb(255, 233, 143)), 
-        linear-gradient(to right, rgb(255, 244, 200), rgb(255, 233, 143)), 
-        url("../images/mainbackground.jpg");
-    background-position-x: center;
-    background-blend-mode: color, multiply;
-}
 
 main {
     display: grid;
