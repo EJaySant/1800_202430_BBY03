@@ -3,6 +3,7 @@
 
 main {
     display: grid;
+    grid-template-columns: 60%;
     justify-content: center;
     gap: 10px;
     margin-bottom: 80px;
@@ -32,13 +33,14 @@ main {
 
 /* Lost Item Posts */
 #postsHere {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 80%;
+    justify-content: center;
     gap: 20px;
 }
 
 .card {
+    width: 100%;
     display: grid;
     justify-content: center;
     background-color: white;
