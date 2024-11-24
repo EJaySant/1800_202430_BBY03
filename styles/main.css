@@ -86,6 +86,7 @@ h1 {
     font-size: 14pt;
     width: 100%;
     font-weight: 500;
+    overflow-wrap: break-word;
 }
 
 .locationHolder::before {
