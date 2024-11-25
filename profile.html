@@ -33,20 +33,22 @@
     </nav>
 
     <main id="mainProfile">
-        <div id="profile">
-            <img src="./images/Profile Icon.png" alt="profile" id="profileIcon">
-        </div>
-        <div id="form">
-            <input type="file" alt="Profile Image" id="profileImage" accept="image/png, image/jpeg">
-            <input type="submit" alt="Submit" id="submit">
-        </div>
-        <div id="form">
-            <!-- <input type="text" id="name" placeholder="Name"> -->
-            <p id="name"></p>
-        </div>
-        <div id="form">
-            <!-- <input type="email" id="gmail" placeholder="Gmail"> -->
-            <p id="gmail"></p>
+        <div id="profileContainer">
+            <div id="profile">
+                <img src="./images/Profile Icon.png" alt="profile" id="profileIcon">
+            </div>
+            <div id="addImageContainer">
+                <input type="file" alt="Profile Image" id="profileImage" accept="image/png, image/jpeg">
+                <input type="submit" alt="Submit" id="submit">
+            </div>
+            <div>
+                <!-- <input type="text" id="name" placeholder="Name"> -->
+                <p id="name"></p>
+            </div>
+            <div>
+                <!-- <input type="email" id="gmail" placeholder="Gmail"> -->
+                <p id="gmail"></p>
+            </div>
         </div>
         <div id="myPosts">
             <h1>My Posts</h1>
@@ -59,10 +61,10 @@
                         <p class="locationHolder"></p>
                         <button class="getDirectionsButton">Get Directions</button>
                         <p class="timeHolder"></p>
-                        </div>
                     </div>
-                </template>
             </div>
+            </template>
+        </div>
         </div>
     </main>
 
