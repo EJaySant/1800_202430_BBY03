@@ -180,3 +180,11 @@ button, input[type="button"] {
     font-weight: 600;
 }
 
+.found {
+    grid-column: 1 / span 3;
+    width: 100%;
+    background-color: rgb(95, 204, 51);
+    color:rgb(32, 111, 0);
+    font-weight: 800;
+    box-shadow: 0 0 5px;
+}

@@ -50,7 +50,7 @@ function userInfo() {
                                 hideElement(newCard.querySelector('.descriptionHolder'));
                             }
 
-                            if (doc.data().finishPost() == true) {
+                            if (doc.data().finishPost == true) {
                                 newCard.querySelector('.found').innerHTML = "Owner found the item";
                             }
 
