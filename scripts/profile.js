@@ -50,6 +50,10 @@ function userInfo() {
                                 hideElement(newCard.querySelector('.descriptionHolder'));
                             }
 
+                            if (doc.data().finishPost() == true) {
+                                newCard.querySelector('.found').innerHTML = "Owner found the item";
+                            }
+
                             if (days >= 1) {
                                 newCard.querySelector('.timeHolder').innerHTML = "Found " + days + " day" + ((days == 1) ? "" :"s") + " ago";
                             } else if (hours >= 1) {
