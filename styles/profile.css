@@ -118,7 +118,7 @@ input[type="file"]:active {
     gap: 20px;
     overflow-y: scroll;
     height: 500px;
-    background: white;
+    background: rgb(255, 213, 0);
     box-shadow: 0 0 5px;
     padding: 10px 0;
     border-radius: 10px;
