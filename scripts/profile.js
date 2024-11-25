@@ -24,22 +24,41 @@ function userInfo() {
 
                     var myPosts = userDoc.data().myposts;
                     let cardTemplate = document.getElementById("postCardTemplate");
+                    let currentTime =  Date.now();
 
                     myPosts.forEach(postID => {
                         db.collection("posts").doc(postID).get().then(doc => {
 
                             var tags = doc.data().item;
                             var description = doc.data().description;
-                            var time = doc.data().time.toDate().toDateString();
                             var data = doc.data().image;
+
+                            let elapsed = currentTime - doc.data().time.toDate();
+                            var seconds = Math.floor(elapsed / 1000);
+                            var minutes = Math.floor(elapsed / 60000);
+                            var hours = Math.floor(elapsed / 3600000);
+                            var days = Math.floor(elapsed / 86400000);
 
                             let newCard = cardTemplate.content.cloneNode(true);
 
                             newCard.querySelector('.lostItemContainer').setAttribute("src", data);
                             newCard.querySelector('.lostItemContainer').setAttribute("alt", tags);
-                            newCard.querySelector('.tagHolder').innerHTML = "#" + tags;
+                            newCard.querySelector('.heading').innerHTML += tags.toString().charAt(0).toUpperCase() + tags.toString().substring(1) + " found";
                             newCard.querySelector('.descriptionHolder').innerHTML = description;
-                            newCard.querySelector('.timeHolder').innerHTML = time;
+
+                            if (description == "") {
+                                hideElement(newCard.querySelector('.descriptionHolder'));
+                            }
+
+                            if (days >= 1) {
+                                newCard.querySelector('.timeHolder').innerHTML = "Found " + days + " day" + ((days == 1) ? "" :"s") + " ago";
+                            } else if (hours >= 1) {
+                                newCard.querySelector('.timeHolder').innerHTML = "Found " + hours + " hour" + ((hours == 1) ? "" :"s") + " ago";
+                            } else if (minutes >= 1) {
+                                newCard.querySelector('.timeHolder').innerHTML = "Found " + minutes + " minute" + ((minutes == 1) ? "" :"s") + " ago";
+                            }else {
+                                newCard.querySelector('.timeHolder').innerHTML = "Found " + seconds + " second" + ((seconds == 1) ? "" :"s") + " ago";
+                            }
 
                             document.getElementById("mypostsHere").appendChild(newCard);
                         })

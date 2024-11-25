@@ -92,7 +92,7 @@ displayCards("posts");
 document.getElementById("load").addEventListener("click", () => {
     resetDisplayCards();
     loadLimit += 10;
-    displayCards();
+    displayCards("posts");
 })
 
 function resetDisplayCards() {
