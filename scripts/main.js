@@ -137,16 +137,6 @@ function findPost() {
     }
 }
 
-displayAllCards();
-
-document.getElementById("load").addEventListener("click", () => {
-    resetDisplayCards();
-    loadLimit += 10;
-    findPost();
-})
-
-searchBar.addEventListener("input", findPost);
-
 function finishPost(postID) {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -157,3 +147,20 @@ function finishPost(postID) {
     })
     findPost();
 }
+
+function clearSearch() {
+    searchBar.value = "";
+    findPost();
+}
+
+displayAllCards();
+
+document.getElementById("load").addEventListener("click", () => {
+    resetDisplayCards();
+    loadLimit += 10;
+    findPost();
+})
+
+searchBar.addEventListener("change", findPost);
+
+searchBar.addEventListener("click", clearSearch);
