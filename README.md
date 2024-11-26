@@ -2,9 +2,12 @@
 Findr
 
 ## 1. Project Description
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
 This browser based web application allows users to post lost items they find and enables others
-to find their lost items.
+to find their lost items. 
+
+After authentication, the user will be directed to the main page where they can browse, search, and get 
+the location of their lost items. Users that encounter a lost item will be able to post a picture of that 
+item along with its location, name, description, and time when it was found.
 
 ## 2. Contributors
 * Ervin Santiago
