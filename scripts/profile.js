@@ -15,11 +15,11 @@ function userInfo() {
                     }
 
                     if (userName != null) {
-                        document.getElementById("name").innerHTML = userName;
+                        document.getElementById("name").value = userName;
                     }
 
                     if (userEmail != null) {
-                        document.getElementById("gmail").innerHTML = userEmail;
+                        document.getElementById("gmail").value = userEmail;
                     }
 
                     var myPosts = userDoc.data().myposts;
@@ -93,6 +93,16 @@ function saveProfile() {
         if (file) {
             reader.readAsDataURL(file);
         }
+
+        userName = document.getElementById("name").value;
+        userEmail = document.getElementById("gmail").value;
+
+        firebase.auth().onAuthStateChanged(user => {
+            db.collection("users").doc(user.uid).update({
+                name: userName,
+                email: userEmail
+            })
+        })
     })
 }
 saveProfile()
