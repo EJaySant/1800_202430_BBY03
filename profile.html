@@ -33,35 +33,37 @@
     </nav>
 
     <main id="mainProfile">
-        <div id="profile">
-            <img src="./images/Profile Icon.png" alt="profile" id="profileIcon">
-        </div>
-        <div id="form">
-            <!-- <input type="text" id="name" placeholder="Name"> -->
-            <p id="name"></p>
-        </div>
-        <div id="form">
-            <!-- <input type="email" id="gmail" placeholder="Gmail"> -->
-            <p id="gmail"></p>
+        <div id="profileContainer">
+            <div id="profile">
+                <img src="./images/Profile Icon.png" alt="Profile Icon" id="profileIcon">
+            </div>
+            <div id="addImageContainer">
+                <input type="file" alt="Profile Image" id="profileImage" accept="image/png, image/jpeg" placeholder="Profile Icon">
+                <input type="submit" alt="Submit" id="submit">
+            </div>
+            <div id="inputContainer">
+                <input type="text" id="name" placeholder="Name">
+                <!-- <p id="name"></p> -->
+                <input type="email" id="gmail" placeholder="Gmail">
+                <!-- <p id="gmail"></p> -->
+            </div>
         </div>
         <div id="myPosts">
-            <h1>My Posts</h1>
+            <h1 id="myPostsHeader">My Posts</h1>
             <div id="mypostsHere">
                 <template id="postCardTemplate">
                     <div class="card">
-                        <div id="heading">
-                            <h1>LOST</h1>
-                        </div>
+                        <h1 class="heading"></h1>
+                        <p class="found"></p>
                         <img class="lostItemContainer" src="./images/test_image.jpg" alt="..">
-                        <div id="contentContainer">
-                            <p class="timeHolder"></p>
-                            <a class="tagHolder"></a>
-                            <p class="descriptionHolder"></p>
-                            <!-- <p class="returned"></p> -->
-                        </div>
+                        <p class="descriptionHolder"></p>
+                        <p class="locationHolder"></p>
+                        <button class="getDirectionsButton">Get Directions</button>
+                        <p class="timeHolder"></p>
                     </div>
-                </template>
             </div>
+            </template>
+        </div>
         </div>
     </main>
 

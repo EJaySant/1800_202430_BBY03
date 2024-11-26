@@ -2,11 +2,14 @@
 Findr
 
 ## 1. Project Description
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ... 
+This browser based web application allows users to post lost items they find and enables others
+to find their lost items. 
 
-## 2. Names of Contributors
-List team members and/or short bio's here... 
+After authentication, the user will be directed to the main page where they can browse, search, and get 
+the location of their lost items. Users that encounter a lost item will be able to post a picture of that 
+item along with its location, name, description, and time when it was found.
+
+## 2. Contributors
 * Ervin Santiago
 * Carl Manansala
 * Tushar Aheer
@@ -18,19 +21,22 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * Firebase 8.0 (BAAS - Backend as a Service)
 * MediaStream API
 * Geolocation API
+* FileReader API
+* Icons - FLATICON: https://www.flaticon.com/
+* Background Image - OnlyGFX.com: https://www.onlygfx.com/grey-triangle-pattern-seamless-background-jpg/
+* Landing Page Image - iStock: https://www.istockphoto.com/photo/lost-wallet-on-empty-bench-gm592382744-101724725
 
 ## 4. Complete setup/installion/usage
-State what a user needs to do when they come to your project.  How do others start using your code or application?
-Here are the steps ...
-* ...
-* ...
-* ...
+* Click on this link: https://comp1800-202430-bby03.web.app/
+* Create an account
+* Enable camera and location on your device while using the page
 
 ## 5. Known Bugs and Limitations
-Here are some known bugs:
-* ...
-* ...
-* ...
+* Camera functionality only works on laptop or desktop devices with a camera.
+* Location based features will fail to appear or work if location is not enabled.
+* Exiting from the posting page or report.html too quickly after submitting a post will result in the post not fully submitting.
+* If the camera is not enabled, the user will not be allowed to post a lost item.
+* Smaller screen sizes may cause the parts of the pages to clip or not appear.
 
 ## 6. Features for Future
 What we'd like to build in the future:
@@ -44,13 +50,25 @@ Content of the project folder:
 ```
  Top level of project folder: 
 ├── .gitignore               # Git ignore file
-├── index.html               # landing HTML file, this is what users see when you come to url
+├── index.html               # Landing HTML file, this is what users see when they click on the url.
+├── login.html               # Login HTML file, this is where users are directed to after pressing the login button.
+├── main.html                # Main HTML file, this is where the user is directed to after logging in and where they can access the rest of the web app. 
+├── profile.html             # Profile HTML file, this is where users access their account information.
+├── report.html              # Report HTML file, this is where user posts lost items.
 └── README.md
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
-    /blah.jpg                # Acknowledge source
+    /3people-icon.png        # FLATICON: https://www.flaticon.com/
+    /Profile Icon.png        # FLATICON: https://www.flaticon.com/
+    /add.png                 # FLATICON: https://www.flaticon.com/
+    /findr.PNG               # Customized icon made from canva.com
+    /home.jpg                # FLATICON: https://www.flaticon.com/
+    /lostwallet.jpg          # 
+    /mainbackground.jpg      # FLATICON: https://www.flaticon.com/
+    /marker.png              # FLATICON: https://www.flaticon.com/
+    /search-icon.png         # FLATICON: https://www.flaticon.com/
 ├── scripts                  # Folder for scripts
     /blah.js                 # 
 ├── styles                   # Folder for styles
