@@ -1,4 +1,12 @@
+/* Represents the Firebase UI */
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+/*
+Contains a callback that checks if the user has successfully 
+created an account and, if successful, creates a user document 
+representing their account details. 
+It is used or called whenever the user tries to log in.
+*/
 var uiConfig = {
     callbacks: {
         signInSuccessWithAuthResult: function (authResult, redirectUrl) {
@@ -24,16 +32,9 @@ var uiConfig = {
     signInFlow: 'popup',
     signInSuccessUrl: "main.html",
     signInOptions: [
-        // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        // firebase.auth.GithubAuthProvider.PROVIDER_ID,
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        // firebase.auth.PhoneAuthProvider.PROVIDER_ID
-    ],
-    // Terms of service url.
-    tosUrl: '<your-tos-url>',
-    // Privacy policy url.
-    privacyPolicyUrl: '<your-privacy-policy-url>',
+    ]
 };
+
+
 ui.start('#firebaseui-auth-container', uiConfig);

@@ -37,6 +37,7 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 * Exiting from the posting page or report.html too quickly after submitting a post will result in the post not fully submitting.
 * If the camera is not enabled, the user will not be allowed to post a lost item.
 * Smaller screen sizes may cause the parts of the pages to clip or not appear.
+* User cannot log out of their current session.
 
 ## 6. Features for Future
 What we'd like to build in the future:

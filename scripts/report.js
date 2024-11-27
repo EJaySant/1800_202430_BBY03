@@ -1,5 +1,6 @@
 /*
-Allows the user to take a picture from the website itself and take a photo of lost items.
+Grabs the video from the device's camera and takes a picture from the website itself.
+It is called when the page first loads.
 Copied and modified from: Mozilla - Taking still photos with getUserMedia()
 https://developer.mozilla.org/en-US/docs/Web/API/Media_Capture_and_Streams_API/Taking_still_photos
 */
@@ -12,17 +13,12 @@ function captureMediaStream() {
     let photo = null;
     let startButton = null;
 
-
-    function showViewLiveResultButton() {
-        if (window.self !== window.top) {
-            return true;
-        }
-        return false;
-    }
-
-
+    /*
+    Creates and sets up the media stream from the user's device, and the event listeners that 
+    activate and set up the video element and click event for the footer button.
+    It is called when the first page loads.
+    */
     function startup() {
-        //Checks to see if the camera is at the top of the page
         if (window.self !== window.top) {
             return;
         }
@@ -31,8 +27,11 @@ function captureMediaStream() {
         photo = document.getElementById("photo");
         startButton = document.getElementById("start-button");
 
-        //Creates a video/camera object used to capture pictures from 
-        //the website itself
+        /*
+        Creates a media object used to capture pictures from the website itself via
+        the user's device and adds the object to the video element.
+        It is called when the page first loads.
+        */
         navigator.mediaDevices
             .getUserMedia({ video: true, audio: false })
             .then((stream) => {
@@ -71,7 +70,9 @@ function captureMediaStream() {
             false,
         );
 
-        //Event listener to take a picture.
+        /*
+        Event listener to take a picture when the user clicks on the white button in the footer.
+        */
         startButton.addEventListener(
             "click",
             (ev) => {
@@ -82,7 +83,11 @@ function captureMediaStream() {
         clearPhoto();
     }
 
-    //Clears the canvas area.
+    /*
+    Clears the canvas area and the image on the post submission form.
+    It is called when the user first loads the page and when an error 
+    occurs with the video's dimensions.
+    */
     function clearPhoto() {
         const context = canvas.getContext("2d");
         context.fillStyle = "#AAA";
@@ -92,7 +97,10 @@ function captureMediaStream() {
         photo.setAttribute("src", data);
     }
 
-    //Creates an image using canvas.
+    /*
+    Creates an image using canvas and displays that image on the post submission form.
+    It is called whenever the user clicks on the white button in the footer.
+    */
     function takePicture() {
         const context = canvas.getContext("2d");
         if (width && height) {
@@ -108,14 +116,19 @@ function captureMediaStream() {
     }
     window.addEventListener("load", startup);
 }
-captureMediaStream();
 
-//Displays the submission section.
+/*
+Displays the post submission form.
+It is called 
+*/
 function coverOn() {
     document.getElementById("check").style.display = "block";
 }
 
-//Removes the submission section from view.
+/*
+Hides the post submission form.
+It is called when the user clicks on the cancel post button on the form.
+*/
 function coverOff() {
     document.getElementById("check").style.display = "none";
     document.getElementById("selection").style.boxShadow = "";
@@ -150,11 +163,9 @@ function savePost() {
                     .serverTimestamp()
             }).then(function (docRef) {
                 savePostIDforUser(docRef.id);
-                console.log(docRef.id);
                 navigator.geolocation.getCurrentPosition(position => {
                     var latit = position.coords.latitude;
                     var longi = position.coords.longitude;
-                    console.log(longi + " " + latit);
 
                     db.collection("posts").doc(docRef.id).update({
                         latitude: latit,
@@ -182,7 +193,6 @@ function checkSelect() {
         document.getElementById("selection").style.boxShadow = "0 0 10px rgb(0, 179, 30)";
     }
 }
-document.getElementById("selection").addEventListener("change", checkSelect);
 
 function doubleCheck() {
     document.getElementById("confirmContainer").style.display = "block";
@@ -204,6 +214,13 @@ function submitPost() {
         document.getElementById("selection").style.boxShadow = "0 0 10px red";
     }
 }
+
+
+
+captureMediaStream();
+
+document.getElementById("selection").addEventListener("change", checkSelect);
+
 document.getElementById("submit").addEventListener("click", submitPost);
 
 
