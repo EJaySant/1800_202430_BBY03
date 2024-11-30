@@ -3,7 +3,7 @@
 
 main {
     display: grid;
-    grid-template-columns: 60%;
+    grid-template-columns: 90%;
     justify-content: center;
     gap: 10px;
     margin-bottom: 80px;

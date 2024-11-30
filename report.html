@@ -28,7 +28,7 @@
 
     <main>
         <div class="camera">
-            <video id="video">Video stream not available.</video>
+            <video id="video" autoplay>Video stream not available.</video>
         </div>
         <canvas id="canvas" style="display: none"></canvas>
         <div id="check" class="output">
@@ -56,8 +56,15 @@
                             <option value="keyboard">Keyboard</option>
                             <option value="backpack">Backpack</option>
                             <option value="ring">Ring</option>
-                            <option value="jewelry">Jewelry</option>
+                            <option value="pencil">Pencil</option>
+                            <option value="pen">Pen</option>
+                            <option value="eraser">Eraser</option>
                             <option value="notebook">Notebook</option>
+                            <option value="jewelry">Jewelry</option>
+                            <option value="makeup">Makeup</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="clothing">Clothing</option>
+                            <option value="other item">Other</option>
                         </select>
                     </div>
                     <label for="description">Description:</label>
@@ -82,7 +89,8 @@
             </a>
         </div>
         <div id="centerNavButton">
-            <button id='start-button' onclick='coverOn()'></button>
+            <button id="start-button" onclick="coverOn()"></button>
+            <button id="activate-video">Activate Camera</button>
         </div>
         <div id="rightNavButton">
             <a href="./profile.html">

@@ -22,22 +22,44 @@ function captureMediaStream() {
         if (window.self !== window.top) {
             return;
         }
+
         video = document.getElementById("video");
         canvas = document.getElementById("canvas");
         photo = document.getElementById("photo");
         startButton = document.getElementById("start-button");
 
+        
+        document.getElementById("activate-video").onclick = () => {
+            document.getElementById("activate-video").style.display = "none";
+            document.getElementById("start-button").style.display = "flex";
+            if ('mediaDevices' in navigator && navigator.mediaDevices.getUserMedia) {
+                const constraints = {
+                    video: {facingMode: "user"}, 
+                    audio: false 
+                };
+                startVideo(constraints); 
+            }
+            if (!streaming) {
+                height = video.videoHeight / (video.videoWidth / width);
+                if (isNaN(height)) {
+                    height = width / (4 / 3);
+                }
+
+                video.setAttribute("width", width);
+                video.setAttribute("height", height);
+                canvas.setAttribute("width", width);
+                canvas.setAttribute("height", height);
+                streaming = true;
+                document.getElementById("video").play();
+            }
+        }
+        
         /*
         Creates a media object used to capture pictures from the website itself via
-        the user's device and adds the object to the video element.
-        It is called when the page first loads.
+        the user's device.
         */
-        navigator.mediaDevices
-            .getUserMedia({ video: true, audio: false })
-            .then((stream) => {
-                video.srcObject = stream;
-                video.play();
-            })
+        const startVideo = async (constraints) => {
+            const stream = await navigator.mediaDevices.getUserMedia(constraints)
             .catch((err) => {
                 let photoBtn = document.getElementById("start-button");
 
@@ -48,27 +70,13 @@ function captureMediaStream() {
                 photoBtn.style.cursor = "default";
 
                 alert("Please enable camera access");
-            });
+            });;
+            handleVideo(stream);
+        };
 
-        //Event listener that captures the video stream, sets its and the canvas' dimensions
-        video.addEventListener(
-            "canplay",
-            (ev) => {
-                if (!streaming) {
-                    height = video.videoHeight / (video.videoWidth / width);
-                    if (isNaN(height)) {
-                        height = width / (4 / 3);
-                    }
-
-                    video.setAttribute("width", width);
-                    video.setAttribute("height", height);
-                    canvas.setAttribute("width", width);
-                    canvas.setAttribute("height", height);
-                    streaming = true;
-                }
-            },
-            false,
-        );
+        const handleVideo = (stream) => {
+            video.srcObject = stream;
+        };
 
         /*
         Event listener to take a picture when the user clicks on the white button in the footer.
@@ -77,8 +85,7 @@ function captureMediaStream() {
             "click",
             (ev) => {
                 takePicture();
-            },
-            false,
+            }
         );
         clearPhoto();
     }
@@ -117,12 +124,14 @@ function captureMediaStream() {
     window.addEventListener("load", startup);
 }
 
+
 /*
 Displays the post submission form.
 It is called 
 */
 function coverOn() {
     document.getElementById("check").style.display = "block";
+    document.getElementById("video").pause();
 }
 
 /*
@@ -132,6 +141,7 @@ It is called when the user clicks on the cancel post button on the form.
 function coverOff() {
     document.getElementById("check").style.display = "none";
     document.getElementById("selection").style.boxShadow = "";
+    document.getElementById("video").play();
 }
 
 //Updates the user's document with the myposts array and associated post.
