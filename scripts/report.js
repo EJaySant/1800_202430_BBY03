@@ -34,7 +34,7 @@ function captureMediaStream() {
             document.getElementById("start-button").style.display = "flex";
             if ('mediaDevices' in navigator && navigator.mediaDevices.getUserMedia) {
                 const constraints = {
-                    video: {facingMode: "user"}, 
+                    video: {facingMode: {ideal: "environment"}}, 
                     audio: false 
                 };
                 startVideo(constraints); 
