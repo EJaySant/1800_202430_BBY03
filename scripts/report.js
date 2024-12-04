@@ -28,18 +28,19 @@ function captureMediaStream() {
         photo = document.getElementById("photo");
         startButton = document.getElementById("start-button");
 
-        
+        // Activate the video stream on button click
         document.getElementById("activate-video").onclick = () => {
             document.getElementById("activate-video").style.display = "none";
             document.getElementById("start-button").style.display = "flex";
             if ('mediaDevices' in navigator && navigator.mediaDevices.getUserMedia) {
                 const constraints = {
-                    video: {facingMode: {ideal: "environment"}}, 
-                    audio: false 
+                    video: { facingMode: { ideal: "environment" } },
+                    audio: false
                 };
-                startVideo(constraints); 
+                startVideo(constraints);
             }
             if (!streaming) {
+                // Set video and canvas dimensions
                 height = video.videoHeight / (video.videoWidth / width);
                 if (isNaN(height)) {
                     height = width / (4 / 3);
@@ -53,24 +54,24 @@ function captureMediaStream() {
                 document.getElementById("video").play();
             }
         }
-        
+
         /*
         Creates a media object used to capture pictures from the website itself via
         the user's device.
         */
         const startVideo = async (constraints) => {
             const stream = await navigator.mediaDevices.getUserMedia(constraints)
-            .catch((err) => {
-                let photoBtn = document.getElementById("start-button");
+                .catch((err) => {
+                    let photoBtn = document.getElementById("start-button");
 
-                console.error(`An error occurred: ${err}`);
+                    console.error(`An error occurred: ${err}`);
 
-                photoBtn.disabled = true;
-                photoBtn.style.backgroundColor = "grey";
-                photoBtn.style.cursor = "default";
+                    photoBtn.disabled = true;
+                    photoBtn.style.backgroundColor = "grey";
+                    photoBtn.style.cursor = "default";
 
-                alert("Please enable camera access");
-            });;
+                    alert("Please enable camera access");
+                });;
             handleVideo(stream);
         };
 
@@ -172,6 +173,9 @@ function savePost() {
                 time: firebase.firestore.FieldValue
                     .serverTimestamp()
             }).then(function (docRef) {
+                /**
+                 * * Associates a post with the current user in the Firebase Firestore database.
+                 * */
                 savePostIDforUser(docRef.id);
                 navigator.geolocation.getCurrentPosition(position => {
                     var latit = position.coords.latitude;
@@ -193,17 +197,26 @@ function savePost() {
     coverOff();
 }
 
+/**
+ * Resets the form to its default state.
+ */
 function resetForm() {
     document.getElementById("lostItemForm").reset();
     document.getElementById("selection").style.boxShadow = "";
 }
 
+/**
+ * Adds a visual indicator when an item is selected in the dropdown menu.
+ */
 function checkSelect() {
     if (document.getElementById("selection").value != '') {
         document.getElementById("selection").style.boxShadow = "0 0 10px rgb(0, 179, 30)";
     }
 }
 
+/**
+ * Displays a confirmation dialog before submitting the post.
+ */
 function doubleCheck() {
     document.getElementById("confirmContainer").style.display = "block";
     document.getElementById("exitConfirm").addEventListener("click", (event) => {
@@ -217,6 +230,9 @@ function doubleCheck() {
     });
 }
 
+/**
+ * Validates the form and initiates the post submission process.
+ */
 function submitPost() {
     if (document.getElementById("selection").value != '') {
         doubleCheck();
@@ -226,11 +242,11 @@ function submitPost() {
 }
 
 
-
+// Initialize the media stream and event listeners
 captureMediaStream();
 
+// Add event listeners for form interactions
 document.getElementById("selection").addEventListener("change", checkSelect);
-
 document.getElementById("submit").addEventListener("click", submitPost);
 
 
