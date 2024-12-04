@@ -41,9 +41,9 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 
 ## 6. Features for Future
 What we'd like to build in the future:
-* ...
-* ...
-* ...
+* Adding direct message between users
+* An ai to ensure that the image matches the description given by user
+* Adding a filter for searching to be more precise
 	
 ## 7. Contents of Folder
 Content of the project folder:
@@ -70,10 +70,24 @@ It has the following subfolders and files:
     /mainbackground.jpg      # FLATICON: https://www.flaticon.com/
     /marker.png              # FLATICON: https://www.flaticon.com/
     /search-icon.png         # FLATICON: https://www.flaticon.com/
+
 ├── scripts                  # Folder for scripts
-    /blah.js                 # 
+    /authentication.js       # Handles the functionality of the authentication of users
+    /firebaseAPI_BBY03.js    # Allows us to use firebase and firestore
+    /main.js                 # Handles the functionality of the main/browsing page
+    /profile.js              # Handles the functionality of the profile page
+    /report.js               # Handles the functionilty of the report page
+    /script.js               # Signs out the user when they land on the index or login
+    /skeleton.js             # Handles functionality for the nav bar and signed-out users
+
 ├── styles                   # Folder for styles
-    /blah.css                # 
+    /index.css               # Index page specific styling
+    /login.css               # Login page specific styling
+    /main.css                # Main page specific styling
+    /nav.css                 # Navigation specific styling
+    /profile.css             # Profile page specific styling
+    /report.css              # Report page specific styling
+    /style.css               # Overall website styling
 
 
 
