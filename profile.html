@@ -9,8 +9,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Other libraries go here -->
-
     <!-- Firebase -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -21,18 +19,21 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/nav.css">
+    <link rel="stylesheet" href="./styles/style.css">   
+    <link rel="stylesheet" href="./styles/nav.css">     
     <link rel="stylesheet" href="./styles/profile.css">
 
 </head>
 
 <body>
+    <!-- Header -->
     <nav>
         <a href="main.html">Findr</a>
     </nav>
 
+    <!-- Body -->
     <main id="mainProfile">
+        <!-- User Information -->
         <div id="profileContainer">
             <div id="profile">
                 <img src="./images/Profile Icon.png" alt="Profile Icon" id="profileIcon">
@@ -48,6 +49,8 @@
                 <!-- <p id="gmail"></p> -->
             </div>
         </div>
+
+        <!-- User Posts -->
         <div id="myPosts">
             <h1 id="myPostsHeader">My Posts</h1>
             <div id="mypostsHere">
@@ -67,7 +70,7 @@
         </div>
     </main>
 
-    </main>
+    <!-- Footer Navigation Bar -->
     <footer id="footerNav">
         <div id="leftNavButton">
             <a href="">
@@ -85,6 +88,8 @@
             </a>
         </div>
     </footer>
+
+    <!-- Scripts -->
     <script src="./scripts/firebaseAPI_BBY03.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/profile.js"></script>

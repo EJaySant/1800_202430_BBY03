@@ -186,12 +186,24 @@ function clearSearch() {
 
 displayAllCards();
 
+/* 
+    Upon clicking on the button with the id load, it will reset the displayed posts,
+    Increase the amount of posts show by 10 and re show all the post again.
+*/
 document.getElementById("load").addEventListener("click", () => {
     resetDisplayCards();
     loadLimit += 10;
     findPost();
 })
 
+/* 
+    When the search bar changes from the users inputs, it would update the web
+    and find the post through findPost relating to the input. 
+*/
 searchBar.addEventListener("change", findPost);
 
+/* 
+    When the search bar gets clicked on, if there were any values on the search bar,
+    it would clear the text with the clearSearch function.
+*/
 searchBar.addEventListener("click", clearSearch);

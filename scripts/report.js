@@ -188,6 +188,9 @@ function savePost() {
                 time: firebase.firestore.FieldValue
                     .serverTimestamp()
             }).then(function (docRef) {
+                /**
+                 * * Associates a post with the current user in the Firebase Firestore database.
+                 * */
                 savePostIDforUser(docRef.id);
                 navigator.geolocation.getCurrentPosition(position => {
                     var latit = position.coords.latitude;
