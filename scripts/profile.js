@@ -145,6 +145,12 @@ function saveProfile() {
         });
     });
     
+    /* 
+        The event variable is never called, but this adds a functionality to the
+        submit button. Upon clicking on the submit button, it will read the file
+        inputed for photoes and the current values of the name text box and gmail
+        text box. This will then update the database to match all the values.
+     */
     document.getElementById("submit").addEventListener("click", (event) => {
         let file = document.querySelector("#profileImage").files[0];
         let reader = new FileReader();
