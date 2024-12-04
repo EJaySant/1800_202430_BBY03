@@ -42,17 +42,17 @@
         <!-- Output section for displaying the captured image and form -->
         <div id="check" class="output">
             <div>
-                
+
                 <!-- Placeholder for the captured image -->
                 <img id="photo" alt="The screen capture will appear in this box.">
-                
+
                 <!-- Button to cancel and reset the form -->
                 <button id="cancelPhoto" onclick="coverOff(), resetForm()">Cancel</button>
 
                 <!-- Form for submitting details about the lost item -->
                 <form id="lostItemForm">
                     <div>
-                        
+
                         <!-- Dropdown to select the type of item -->
                         <label for="selection">Item:</label>
                         <select id="selection" required>
@@ -100,13 +100,13 @@
         </div>
 
         <!--Pop up top confirm the post-->
-        <div id=" confirmContainer">
-                    <div id="confirmPopUp">
-                        <p>Please confirm you post.</p>
-                        <input type="button" id="exitConfirm" value="Cancel">
-                        <input type="button" id="confirm" value="Confirm">
-                    </div>
+        <div id="confirmContainer">
+            <div id="confirmPopUp">
+                <p>Please confirm you post.</p>
+                <input type="button" id="exitConfirm" value="Cancel">
+                <input type="button" id="confirm" value="Confirm">
             </div>
+        </div>
     </main>
 
     <!-- Nav Button to go back-->
