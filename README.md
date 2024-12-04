@@ -66,7 +66,7 @@ It has the following subfolders and files:
     /add.png                 # FLATICON: https://www.flaticon.com/
     /findr.PNG               # Customized icon made from canva.com
     /home.jpg                # FLATICON: https://www.flaticon.com/
-    /lostwallet.jpg          # 
+    /lostw.jpg               #https://www.istockphoto.com/photo/lost-wallet-on-empty-bench-gm592382744-101724725
     /mainbackground.jpg      # FLATICON: https://www.flaticon.com/
     /marker.png              # FLATICON: https://www.flaticon.com/
     /search-icon.png         # FLATICON: https://www.flaticon.com/
