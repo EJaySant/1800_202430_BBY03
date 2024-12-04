@@ -1,5 +1,10 @@
 var currentUser;
 
+/*
+    UserInfo loads the user's information and posts. It does this by making sure that the user is logged in
+    and using that information to check the users collection database. From the users database, it grabs the user's
+    information, and any posts that the user has. UserInfo is used when the profile page loads.
+*/
 function userInfo() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -114,10 +119,20 @@ function userInfo() {
     })
 }
 
+/* 
+    hideElement is used to hide an element from the html, without deleting it from the database. 
+    The element variable can be any html element that you want to hide.
+*/
 function hideElement(element) {
     element.style.display = "none";
 }
 
+/*
+    saveProfile is used to change the values shown on the profile page. It updates the
+    database of the personal user, but for the username and gmail, it does not change 
+    the user's log in information. This is called when the user presses the submit button
+    on the profile page.
+ */
 function saveProfile() {
     let icon = document.getElementById("profileIcon");
     firebase.auth().onAuthStateChanged(user => {

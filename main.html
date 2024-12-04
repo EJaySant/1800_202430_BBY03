@@ -28,13 +28,18 @@
 </head>
 
 <body>
+    <!-- Header -->
     <nav>
         <a href="">Findr</a>
     </nav>
+
+    <!-- Body -->
     <main>
+        <!-- Search Bar -->
         <div id="searchBarContainer">
             <input type="text" placeholder="Search" id="searchBar">
         </div>
+        <!-- Lost Item Posts -->
             <div id="postsHere">
                 <template id="postCardTemplate">
                     <div class="card">
@@ -50,6 +55,8 @@
             </div>
             <input type="button" id="load" value="See More">
     </main>
+
+    <!-- Footer Navigation Bar -->
     <footer id="footerNav">
         <div id="leftNavButton">
             <a href="">
@@ -67,6 +74,8 @@
             </a>
         </div>
     </footer>
+
+    <!-- Scripts -->
     <script src="./scripts/firebaseAPI_BBY03.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/main.js"></script>
