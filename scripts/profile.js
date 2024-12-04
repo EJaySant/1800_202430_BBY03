@@ -1,3 +1,4 @@
+/* Represents the current user and the reference to their user document in the Firestore database. */
 var currentUser;
 
 /*
@@ -28,87 +29,9 @@ function userInfo() {
                     }
 
                     var myPosts = userDoc.data().myposts;
-                    let cardTemplate = document.getElementById("postCardTemplate");
-                    let currentTime = Date.now();
 
-                    myPosts.forEach(postID => {
-                        db.collection("posts").doc(postID).get().then(doc => {
-
-                            var tags = doc.data().item;
-                            var description = doc.data().description;
-                            var data = doc.data().image;
-
-                            let latitude = doc.data().latitude;
-                            let longitude = doc.data().longitude;
-
-                            let elapsed = currentTime - doc.data().time.toDate();
-                            var seconds = Math.floor(elapsed / 1000);
-                            var minutes = Math.floor(elapsed / 60000);
-                            var hours = Math.floor(elapsed / 3600000);
-                            var days = Math.floor(elapsed / 86400000);
-
-                            let newCard = cardTemplate.content.cloneNode(true);
-
-                            newCard.querySelector('.lostItemContainer').setAttribute("src", data);
-                            newCard.querySelector('.lostItemContainer').setAttribute("alt", tags);
-                            newCard.querySelector('.heading').innerHTML += tags.toString().charAt(0).toUpperCase() + tags.toString().substring(1) + " found";
-                            newCard.querySelector('.descriptionHolder').innerHTML = description;
-
-                            if (description == "") {
-                                hideElement(newCard.querySelector('.descriptionHolder'));
-                            }
-
-                            if (doc.data().finishPost == true) {
-                                newCard.querySelector('.found').innerHTML = "Owner found the item";
-                            }
-
-                            if (days >= 1) {
-                                newCard.querySelector('.timeHolder').innerHTML = "Found " + days + " day" + ((days == 1) ? "" : "s") + " ago";
-                            } else if (hours >= 1) {
-                                newCard.querySelector('.timeHolder').innerHTML = "Found " + hours + " hour" + ((hours == 1) ? "" : "s") + " ago";
-                            } else if (minutes >= 1) {
-                                newCard.querySelector('.timeHolder').innerHTML = "Found " + minutes + " minute" + ((minutes == 1) ? "" : "s") + " ago";
-                            } else {
-                                newCard.querySelector('.timeHolder').innerHTML = "Found " + seconds + " second" + ((seconds == 1) ? "" : "s") + " ago";
-                            }
-                            let directionsButton = newCard.querySelector('.getDirectionsButton');
-
-                            if (latitude && longitude) {
-                                let locationUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
-                                newCard.querySelector('.locationHolder').innerHTML = `Location:<br><a href="${locationUrl}" target="_blank">View on Map</a>`;
-                            } else {
-                                newCard.querySelector('.locationHolder').innerHTML = "Location not available";
-                                hideElement(directionsButton);
-                            }
-
-                            directionsButton.onclick = function () {
-                                if (latitude && longitude) {
-                                    if ("geolocation" in navigator) {
-                                        navigator.geolocation.getCurrentPosition(function (position) {
-                                            let userLat = position.coords.latitude;
-                                            let userLng = position.coords.longitude;
-
-                                            let directionsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${latitude},${longitude}`;
-
-                                            window.open(directionsUrl, "_blank");
-                                        }, function (error) {
-                                            console.error("Geolocation Error: ", error);
-                                            alert("Unable to retrieve your location.");
-                                        });
-                                    } else {
-                                        console.log("Geolocation is not supported by this browser.");
-                                        alert("Geolocation is not supported by this browser.");
-                                    }
-                                } else {
-                                    console.log("Post location is missing or incomplete.");
-                                    alert("The post's location is not available.");
-                                }
-                            };
-
-
-                            document.getElementById("mypostsHere").appendChild(newCard);
-                        })
-                    })
+                    displayCard(myPosts);
+                    
                 })
 
         }
@@ -116,6 +39,99 @@ function userInfo() {
             console.log("No one is logged in");
         }
 
+    })
+}
+
+/*
+Creates HTML cards that display the item name, description, time found, and assorted 
+buttons and links to find the item's location. The function iterates for each given 
+document given within the "posts" collection in the Firestore database. 
+
+It is called initially by the userInfo function to display the user's posts.
+
+Param: allPosts represents an object that contains the user's posts.
+*/
+function displayCard(allPosts) {
+    let cardTemplate = document.getElementById("postCardTemplate");
+    let currentTime = Date.now();
+
+    allPosts.forEach(postID => {
+        db.collection("posts").doc(postID).get().then(doc => {
+
+            var tags = doc.data().item;
+            var description = doc.data().description;
+            var data = doc.data().image;
+
+            let latitude = doc.data().latitude;
+            let longitude = doc.data().longitude;
+
+            let elapsed = currentTime - doc.data().time.toDate();
+            var seconds = Math.floor(elapsed / 1000);
+            var minutes = Math.floor(elapsed / 60000);
+            var hours = Math.floor(elapsed / 3600000);
+            var days = Math.floor(elapsed / 86400000);
+
+            let newCard = cardTemplate.content.cloneNode(true);
+
+            newCard.querySelector('.lostItemContainer').setAttribute("src", data);
+            newCard.querySelector('.lostItemContainer').setAttribute("alt", tags);
+            newCard.querySelector('.heading').innerHTML += tags.toString().charAt(0).toUpperCase() + tags.toString().substring(1) + " found";
+            newCard.querySelector('.descriptionHolder').innerHTML = description;
+
+            if (description == "") {
+                hideElement(newCard.querySelector('.descriptionHolder'));
+            }
+
+            if (doc.data().finishPost == true) {
+                newCard.querySelector('.found').innerHTML = "Owner found the item";
+            }
+
+            if (days >= 1) {
+                newCard.querySelector('.timeHolder').innerHTML = "Found " + days + " day" + ((days == 1) ? "" : "s") + " ago";
+            } else if (hours >= 1) {
+                newCard.querySelector('.timeHolder').innerHTML = "Found " + hours + " hour" + ((hours == 1) ? "" : "s") + " ago";
+            } else if (minutes >= 1) {
+                newCard.querySelector('.timeHolder').innerHTML = "Found " + minutes + " minute" + ((minutes == 1) ? "" : "s") + " ago";
+            } else {
+                newCard.querySelector('.timeHolder').innerHTML = "Found " + seconds + " second" + ((seconds == 1) ? "" : "s") + " ago";
+            }
+            let directionsButton = newCard.querySelector('.getDirectionsButton');
+
+            if (latitude && longitude) {
+                let locationUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
+                newCard.querySelector('.locationHolder').innerHTML = `Location:<br><a href="${locationUrl}" target="_blank">View on Map</a>`;
+            } else {
+                newCard.querySelector('.locationHolder').innerHTML = "Location not available";
+                hideElement(directionsButton);
+            }
+
+            directionsButton.onclick = function () {
+                if (latitude && longitude) {
+                    if ("geolocation" in navigator) {
+                        navigator.geolocation.getCurrentPosition(function (position) {
+                            let userLat = position.coords.latitude;
+                            let userLng = position.coords.longitude;
+
+                            let directionsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${latitude},${longitude}`;
+
+                            window.open(directionsUrl, "_blank");
+                        }, function (error) {
+                            console.error("Geolocation Error: ", error);
+                            alert("Unable to retrieve your location.");
+                        });
+                    } else {
+                        console.log("Geolocation is not supported by this browser.");
+                        alert("Geolocation is not supported by this browser.");
+                    }
+                } else {
+                    console.log("Post location is missing or incomplete.");
+                    alert("The post's location is not available.");
+                }
+            };
+
+
+            document.getElementById("mypostsHere").appendChild(newCard);
+        })
     })
 }
 

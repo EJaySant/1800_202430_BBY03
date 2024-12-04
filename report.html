@@ -24,19 +24,36 @@
 </head>
 
 <body>
+    <!--Nav Bar-->
     <nav id="navbarPlaceholder"><a href="main.html">Findr</a></nav>
 
     <main>
+
+        <!-- Camera section for capturing an image -->
         <div class="camera">
+
+            <!-- Video element for displaying the live camera feed -->
             <video id="video">Video stream not available.</video>
         </div>
+
+        <!-- Canvas element for capturing the camera image-->
         <canvas id="canvas" style="display: none"></canvas>
+
+        <!-- Output section for displaying the captured image and form -->
         <div id="check" class="output">
             <div>
+                
+                <!-- Placeholder for the captured image -->
                 <img id="photo" alt="The screen capture will appear in this box.">
+                
+                <!-- Button to cancel and reset the form -->
                 <button id="cancelPhoto" onclick="coverOff(), resetForm()">Cancel</button>
+
+                <!-- Form for submitting details about the lost item -->
                 <form id="lostItemForm">
                     <div>
+                        
+                        <!-- Dropdown to select the type of item -->
                         <label for="selection">Item:</label>
                         <select id="selection" required>
                             <option disabled selected value style="display: none;"></option>
@@ -67,37 +84,53 @@
                             <option value="other item">Other</option>
                         </select>
                     </div>
+
+                    <!-- Text area for providing additional description -->
                     <label for="description">Description:</label>
-                    <textarea type="text" id="description" placeholder="Add an optional description of the item"></textarea>
+                    <textarea type="text" id="description"
+                        placeholder="Add an optional description of the item"></textarea>
+
+                    <!-- Button to reset the form -->
                     <button id="clearForm" onclick="resetForm()">Reset</button>
-                    <input type="button" id="submit" value="submit"">
+
+                    <!--Button to sumbit the form-->
+                    <input type="button" id="submit" value="submit">
                 </form>
             </div>
         </div>
-        <div id="confirmContainer">
-            <div id="confirmPopUp">
-                <p>Please confirm you post.</p>
-                <input type="button" id="exitConfirm" value="Cancel">
-                <input type="button" id="confirm" value="Confirm">
+
+        <!--Pop up top confirm the post-->
+        <div id=" confirmContainer">
+                    <div id="confirmPopUp">
+                        <p>Please confirm you post.</p>
+                        <input type="button" id="exitConfirm" value="Cancel">
+                        <input type="button" id="confirm" value="Confirm">
+                    </div>
             </div>
-        </div>
     </main>
+
+    <!-- Nav Button to go back-->
     <footer id="footerPlaceholder">
         <div id="leftNavButton">
             <a href="">
                 <img src="./images/back.png" alt="Back Button" class="select-icon">
             </a>
         </div>
+
+        <!--Nav button to create a new post-->
         <div id="centerNavButton">
             <button id="start-button" onclick="coverOn()"></button>
             <button id="activate-video">Activate Camera</button>
         </div>
+
+        <!--Nav button to acess profile page.-->
         <div id="rightNavButton">
             <a href="./profile.html">
                 <img src="./images/Profile Icon.png" alt="profile" class="select-icon">
             </a>
         </div>
     </footer>
+    <!--Scripts-->
     <script src="./scripts/firebaseAPI_BBY03.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/report.js"></script>

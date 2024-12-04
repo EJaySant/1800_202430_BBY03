@@ -23,7 +23,7 @@ It is called whenever the findPost and displayAllCards functions are called in t
 which means its called when the user user searches for an item in the search bar and when
 they first load into the page.
 
-Param: represents an object that contains the result of a Firestore query
+Param: allPosts represents an object that contains the result of a Firestore query
 */
 function displayCard(allPosts) {
     let cardTemplate = document.getElementById("postCardTemplate");
